@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<link rev=made href="mailto:ikeda_@_is_._tokushima-u_._ac_._jp">
+
+
+
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EN">
+
+
+
+
+
+<title>JavaScript Demos of Dijkstra's Algorithm</title>
+<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/BF15740D-ECF0-CF4C-ADD1-D379792128C2/main.js" charset="UTF-8"></script></head>
+
+<BODY bgcolor=white text="#000080" link="#008000" vlink="#800080">
+<table border="0" cellspacing="0" cellpadding="4">
+<tbody>
+<tr><th align="left" bgcolor="#ffcc66" valign="center" width="120">
+
+<a href="../main/index.shtml">Mathematical<br>Programming<br></a>
+
+</th>
+<th align="left" bgcolor="#ffcc66" valign="center">
+
+<big>JavaScript Demos of Dijkstra's Algorithm</big>
+
+</th></tr>
+<tr>
+<td align="left" bgcolor="#ffcc66" valign="top" width="120">
+
+<p>
+
+<a href="../simplex/Simplex.shtml">Simplex</a>
+
+</p>
+
+<p>
+
+<a href="../simplex/Twophase.shtml">Twophase</a>
+
+</p>
+
+<p>
+
+<a href="../dijkstra/Dijkstra.shtml">Dijkstra</a>
+
+</p>
+
+<p>
+
+<a href="../dijkstra/Prim.shtml">Prim</a>
+
+</p>
+
+<p>
+
+<a href="../kruskal/Kruskal.shtml">Kruskal</a>
+
+</p>
+
+<p>
+
+<a href="../maxflow/Maxflow.shtml">Ford-Fulkerson</a>
+
+</p>
+<small>
+
+<hr>Dijkstra<br>JavaScript demos:<ul>
+<li>demo1
+
+<li><a href="DijkstraApp.shtml?demo2">demo2</a>
+<li><a href="DijkstraApp.shtml?demo3">demo3</a>
+<li><a href="DijkstraApp.shtml?demo4">demo4</a>
+<li><a href="DijkstraApp.shtml?demo5">demo5</a>
+<li><a href="DijkstraApp.shtml?demo6">demo6</a>
+<li><a href="DijkstraApp.shtml?demo7">demo7</a>
+<li><a href="DijkstraApp.shtml?demo8">demo8</a>
+</ul>
+
+</small>
+<hr>
+
+FAQ
+<!--a href="../faq/faq.shtml">FAQ</a-->
+
+<hr>
+
+<small>
+
+
+
+</small>
+
+</td>
+<td bccolor=white valign=top>
+
+
+
+CLICK on the canvas below for several times
+to find a shortest path from u<sub>0</sub>.<br>
+<canvas id="dijkstra" width="1200" height="1200"></canvas><br>
+<script type='text/javascript' src='./dijkstra.js'></script>
+<script>
+	var myfont = "18px 'Courier'";
+	var isdigraph = false;
+	var nodes = [["x0y0//00_00",100,900],
+		["x1y0//15_00",225,900],
+		["x2y0//30_00",350,900],
+		["x3y0//45_00",475,900],
+		["x4y0//50_00",600,900],
+		["x0y1//00_20",100,650],
+		["x1y1//15_20",225,650],
+		["x2y1//30_20",350,650],
+		["x3y1//45_20",475,650],
+		["x4y1//50_20",600,650],
+		["x0y2//00_50",100,400],
+		["x1y2//15_50",225,400],
+		["x2y2//30_50",350,400],
+		["x3y2//45_50",475,400],
+		["x4y2//50_50",600,400],
+		["x0y3//00_80",100,250],
+		["x1y3//15_80",225,250],
+		["x2y3//30_80",350,250],
+		["x3y3//45_80",475,250],
+		["x4y3//50_80",600,250]];
+
+
+		//MAIS RAPIDO
+	// var edges =[["x0y0//00_00_x1y0//15_00","x0y0//00_00","x1y0//15_00",parseInt((15/110) * 100)],
+	// 	["x0y0//00_00_x0y1//00_20","x0y0//00_00","x0y1//00_20",parseInt((20/90) * 100)],
+	// 	["x1y0//15_00_x2y0//30_00","x1y0//15_00","x2y0//30_00",parseInt((15/110) * 100)],
+	// 	["x1y0//15_00_x1y1//15_20","x1y0//15_00","x1y1//15_20",parseInt((20/40) * 100)],
+	// 	["x2y0//30_00_x3y0//45_00","x2y0//30_00","x3y0//45_00",parseInt((15/110) * 100)],
+	// 	["x2y0//30_00_x2y1//30_20","x2y0//30_00","x2y1//30_20",parseInt((20/50) * 100)],
+	// 	["x3y0//45_00_x4y0//50_00","x3y0//45_00","x4y0//50_00",parseInt((5/110) * 100)],
+	// 	["x3y0//45_00_x3y1//45_20","x3y0//45_00","x3y1//45_20",parseInt((20/40) * 100)],
+	// 	["x4y0//50_00_x4y1//50_20","x4y0//50_00","x4y1//50_20",parseInt((20/50) * 100)],
+	// 	["x0y1//00_20_x1y1//15_20","x0y1//00_20","x1y1//15_20",parseInt((15/60) * 100)],
+	// 	["x0y1//00_20_x0y2//00_50","x0y1//00_20","x0y2//00_50",parseInt((30/90) * 100)],
+	// 	["x1y1//15_20_x2y1//30_20","x1y1//15_20","x2y1//30_20",parseInt((15/60) * 100)],
+	// 	["x1y1//15_20_x1y2//15_50","x1y1//15_20","x1y2//15_50",parseInt((30/40) * 100)],
+	// 	["x2y1//30_20_x3y1//45_20","x2y1//30_20","x3y1//45_20",parseInt((15/60) * 100)],
+	// 	["x2y1//30_20_x2y2//30_50","x2y1//30_20","x2y2//30_50",parseInt((30/50) * 100)],
+	// 	["x3y1//45_20_x4y1//50_20","x3y1//45_20","x4y1//50_20",parseInt((5/60) * 100)],
+	// 	["x3y1//45_20_x3y2//45_50","x3y1//45_20","x3y2//45_50",parseInt((30/40) * 100)],
+	// 	["x4y1//50_20_x4y2//50_50","x4y1//50_20","x4y2//50_50",parseInt((30/50) * 100)],
+	// 	["x0y2//00_50_x1y2//15_50","x0y2//00_50","x1y2//15_50",parseInt((15/80) * 100)],
+	// 	["x0y2//00_50_x0y3//00_80","x0y2//00_50","x0y3//00_80",parseInt((30/90) * 100)],
+	// 	["x1y2//15_50_x2y2//30_50","x1y2//15_50","x2y2//30_50",parseInt((15/80) * 100)],
+	// 	["x1y2//15_50_x1y3//15_80","x1y2//15_50","x1y3//15_80",parseInt((30/40) * 100)],
+	// 	["x2y2//30_50_x3y2//45_50","x2y2//30_50","x3y2//45_50",parseInt((15/80) * 100)],
+	// 	["x2y2//30_50_x2y3//30_80","x2y2//30_50","x2y3//30_80",parseInt((30/50) * 100)],
+	// 	["x3y2//45_50_x4y2//50_50","x3y2//45_50","x4y2//50_50",parseInt((5/80) * 100)],
+	// 	["x3y2//45_50_x3y3//45_80","x3y2//45_50","x3y3//45_80",parseInt((30/40) * 100)],
+	// 	["x4y2//50_50_x4y3//50_80","x4y2//50_50","x4y3//50_80",parseInt((30/50) * 100)],
+	// 	["x0y3//00_80_x1y3//15_80","x0y3//00_80","x1y3//15_80",parseInt((15/30) * 100)],
+	// 	["x1y3//15_80_x2y3//30_80","x1y3//15_80","x2y3//30_80",parseInt((15/30) * 100)],
+	// 	["x2y3//30_80_x3y3//45_80","x2y3//30_80","x3y3//45_80",parseInt((15/30) * 100)],
+	// 	["x3y3//45_80_x4y3//50_80","x3y3//45_80","x4y3//50_80",parseInt((5/30) * 100)]];
+
+		//MAIS curto
+		var edges =[["x0y0//00_00_x1y0//15_00","x0y0//00_00","x1y0//15_00",15],
+			["x0y0//00_00_x0y1//00_20","x0y0//00_00","x0y1//00_20",20],
+			["x1y0//15_00_x2y0//30_00","x1y0//15_00","x2y0//30_00",15],
+			["x1y0//15_00_x1y1//15_20","x1y0//15_00","x1y1//15_20",20],
+			["x2y0//30_00_x3y0//45_00","x2y0//30_00","x3y0//45_00",15],
+			["x2y0//30_00_x2y1//30_20","x2y0//30_00","x2y1//30_20",20],
+			["x3y0//45_00_x4y0//50_00","x3y0//45_00","x4y0//50_00",5],
+			["x3y0//45_00_x3y1//45_20","x3y0//45_00","x3y1//45_20",20],
+			["x4y0//50_00_x4y1//50_20","x4y0//50_00","x4y1//50_20",20],
+			["x0y1//00_20_x1y1//15_20","x0y1//00_20","x1y1//15_20",15],
+			["x0y1//00_20_x0y2//00_50","x0y1//00_20","x0y2//00_50",30],
+			["x1y1//15_20_x2y1//30_20","x1y1//15_20","x2y1//30_20",15],
+			["x1y1//15_20_x1y2//15_50","x1y1//15_20","x1y2//15_50",30],
+			["x2y1//30_20_x3y1//45_20","x2y1//30_20","x3y1//45_20",15],
+			["x2y1//30_20_x2y2//30_50","x2y1//30_20","x2y2//30_50",30],
+			["x3y1//45_20_x4y1//50_20","x3y1//45_20","x4y1//50_20",5],
+			["x3y1//45_20_x3y2//45_50","x3y1//45_20","x3y2//45_50",30],
+			["x4y1//50_20_x4y2//50_50","x4y1//50_20","x4y2//50_50",30],
+			["x0y2//00_50_x1y2//15_50","x0y2//00_50","x1y2//15_50",15],
+			["x0y2//00_50_x0y3//00_80","x0y2//00_50","x0y3//00_80",30],
+			["x1y2//15_50_x2y2//30_50","x1y2//15_50","x2y2//30_50",15],
+			["x1y2//15_50_x1y3//15_80","x1y2//15_50","x1y3//15_80",30],
+			["x2y2//30_50_x3y2//45_50","x2y2//30_50","x3y2//45_50",15],
+			["x2y2//30_50_x2y3//30_80","x2y2//30_50","x2y3//30_80",30],
+			["x3y2//45_50_x4y2//50_50","x3y2//45_50","x4y2//50_50",5],
+			["x3y2//45_50_x3y3//45_80","x3y2//45_50","x3y3//45_80",30],
+			["x4y2//50_50_x4y3//50_80","x4y2//50_50","x4y3//50_80",30],
+			["x0y3//00_80_x1y3//15_80","x0y3//00_80","x1y3//15_80",15],
+			["x1y3//15_80_x2y3//30_80","x1y3//15_80","x2y3//30_80",15],
+			["x2y3//30_80_x3y3//45_80","x2y3//30_80","x3y3//45_80",15],
+			["x3y3//45_80_x4y3//50_80","x3y3//45_80","x4y3//50_80",5]];
+	var canvas = document.getElementById('dijkstra');
+
+	function menu(opcao,args) {
+		switch (opcao) {
+			// Add Partida
+    	case 1:
+				verificax = [0,15,30,45,50];
+				verificay = [0,20,50,80];
+				// x
+				var xnome;
+				var xnumero;
+				if (args[0] == 0) {
+					 xnome = "x0";
+					 xnumero = 00;
+				}
+				if (args[0] == 15) {
+					xnome = "x1";
+					xnumero = 15;
+				}
+				if (args[0] == 30) {
+					xnome = "x2";
+					xnumero = 30;
+				}
+				if (args[0] == 45) {
+					xnome = "x3";
+					xnumero = 45;
+				}
+				if (args[0] == 50) {
+					xnome = "x4";
+					xnumero = 50;
+				}
+
+				// y
+				var ynome;
+				var ynumero;
+				if (args[1] == 0) {
+					ynome = "y0";
+					ynumero = 00
+				}
+				if (args[1] == 20) {
+					ynome = "y1";
+					ynumero = 20
+				}
+				if (args[1] == 50) {
+					ynome = "y2";
+					ynumero = 50
+				}
+				if (args[1] == 80) {
+					ynome = "y3";
+					ynumero = 80
+				}
+
+				if (verificax.indexOf(args[0]) > 0 || verificay.indexOf(args[1]) > 0) {
+					//Estão na rua
+					//resolve x
+					if (verificax.indexOf(args[0]) < 0) {
+						if (args[0] >= 0 && args[0] <= 15) {
+							nodes.unshift(["partida",900,900]);
+							edges.unshift(["x0" + ynome, "x0" + ynome + "//" + "00_" + ynumero,"partida",args[1]]);
+							edges.unshift(["x1" + ynome,"partida", "x1" + ynome + "//" + "15_" + ynumero,15 - args[1]]);
+
+						}if (args[0] >= 16 && args[0] <= 30) {
+							nodes.unshift(["partida",900,900]);
+							edges.unshift(["x1" + ynome, "x1" + ynome + "//" + "15_" + ynumero,"partida",args[1]]);
+							edges.unshift(["x2" + ynome,"partida", "x2" + ynome + "//" + "30_" + ynumero,30 - args[1]]);
+
+						}if (args[0] >= 31 && args[0] <= 45) {
+							nodes.unshift(["partida",900,900]);
+							edges.unshift(["x2" + ynome, "x2" + ynome + "//" + "30_" + ynumero,"partida",args[1]]);
+							edges.unshift(["x3" + ynome,"partida", "x3" + ynome + "//" + "45_" + ynumero,45 - args[1]]);
+
+						}if (args[0] >= 46 && args[0] <= 50) {
+							nodes.unshift(["partida",900,900]);
+							edges.unshift(["x3" + ynome, "x3" + ynome + "//" + "45_" + ynumero,"partida",args[1]]);
+							edges.unshift(["x4" + ynome,"partida", "x4" + ynome + "//" + "50_" + ynumero,50 - args[1]]);
+						}
+					} else {
+						//resolve y
+						if (args[1] >= 0 && args[1] <= 20) {
+							nodes.unshift(["partida",900,900]);
+							edges.unshift([xnome + "y0",xnome + "y0//" + xnumero + "_00","partida",args[1]]);
+							edges.unshift([xnome + "y1","partida",xnome + "y1//" + xnumero + "_20",20 - args[1]]);
+
+						}if (args[1] >= 21 && args[1] <= 50) {
+							nodes.unshift(["partida",900,900]);
+							edges.unshift([xnome + "y1",xnome + "y1//" + xnumero + "_20","partida",args[1]]);
+							edges.unshift([xnome + "y2","partida",xnome + "y2//" + xnumero + "_50",50 - args[1]]);
+
+						}if (args[1] >= 51 && args[1] <= 80) {
+							nodes.unshift(["partida",900,900]);
+							edges.unshift([xnome + "y2",xnome + "y2//" + xnumero + "_50","partida",args[1]]);
+							edges.unshift([xnome + "y3","partida",xnome + "y3//" + xnumero + "_80",80 - args[1]]);
+
+						}
+					}
+				}
+
+
+
+			break;
+			// Add chegada
+    	case 2:
+			verificax = [0,15,30,45,50];
+			verificay = [0,20,50,80];
+			// x
+			var xnome;
+			var xnumero;
+			if (args[0] == 0) {
+				 xnome = "x0";
+				 xnumero = 00;
+			}
+			if (args[0] == 15) {
+				xnome = "x1";
+				xnumero = 15;
+			}
+			if (args[0] == 30) {
+				xnome = "x2";
+				xnumero = 30;
+			}
+			if (args[0] == 45) {
+				xnome = "x3";
+				xnumero = 45;
+			}
+			if (args[0] == 50) {
+				xnome = "x4";
+				xnumero = 50;
+			}
+
+			// y
+			var ynome;
+			var ynumero;
+			if (args[1] == 0) {
+				ynome = "y0";
+				ynumero = 00
+			}
+			if (args[1] == 20) {
+				ynome = "y1";
+				ynumero = 20
+			}
+			if (args[1] == 50) {
+				ynome = "y2";
+				ynumero = 50
+			}
+			if (args[1] == 80) {
+				ynome = "y3";
+				ynumero = 80
+			}
+
+			if (verificax.indexOf(args[0]) > 0 || verificay.indexOf(args[1]) > 0) {
+				//Estão na rua
+				//resolve x
+				if (verificax.indexOf(args[0]) < 0) {
+					if (args[0] >= 0 && args[0] <= 15) {
+						nodes.push(["chegada",50,50]);
+						edges.push(["x0" + ynome, "x0" + ynome + "//" + "00_" + ynumero,"chegada",args[1]]);
+						edges.push(["x1" + ynome,"chegada", "x1" + ynome + "//" + "15_" + ynumero,15 - args[1]]);
+
+					}if (args[0] >= 16 && args[0] <= 30) {
+						nodes.push(["chegada",50,50]);
+						edges.push(["x1" + ynome, "x1" + ynome + "//" + "15_" + ynumero,"chegada",args[1]]);
+						edges.push(["x2" + ynome,"chegada", "x2" + ynome + "//" + "30_" + ynumero,30 - args[1]]);
+
+					}if (args[0] >= 31 && args[0] <= 45) {
+						nodes.push(["chegada",50,50]);
+						edges.push(["x2" + ynome, "x2" + ynome + "//" + "30_" + ynumero,"chegada",args[1]]);
+						edges.push(["x3" + ynome,"chegada", "x3" + ynome + "//" + "45_" + ynumero,45 - args[1]]);
+
+					}if (args[0] >= 46 && args[0] <= 50) {
+						nodes.push(["chegada",50,50]);
+						edges.push(["x3" + ynome, "x3" + ynome + "//" + "45_" + ynumero,"chegada",args[1]]);
+						edges.push(["x4" + ynome,"chegada", "x4" + ynome + "//" + "50_" + ynumero,50 - args[1]]);
+					}
+				} else {
+					//resolve y
+					if (args[1] >= 0 && args[1] <= 20) {
+						nodes.push(["chegada",50,50]);
+						edges.push([xnome + "y0",xnome + "y0//" + xnumero + "_00","chegada",args[1]]);
+						edges.push([xnome + "y1","chegada",xnome + "y1//" + xnumero + "_20",20 - args[1]]);
+
+					}if (args[1] >= 21 && args[1] <= 50) {
+						nodes.push(["chegada",50,50]);
+						edges.push([xnome + "y1",xnome + "y1//" + xnumero + "_20","chegada",args[1]]);
+						edges.push([xnome + "y2","chegada",xnome + "y2//" + xnumero + "_50",50 - args[1]]);
+
+					}if (args[1] >= 51 && args[1] <= 80) {
+						nodes.push(["chegada",50,50]);
+						edges.push([xnome + "y2",xnome + "y2//" + xnumero + "_50","chegada",args[1]]);
+						edges.push([xnome + "y3","chegada",xnome + "y3//" + xnumero + "_80",80 - args[1]]);
+
+					}
+				}
+			}
+      break;
+			// Add interropção
+    	case 3:
+
+			break;
+			// mais curto
+			case 4:
+
+			break
+			// mais rapido
+			case 5:
+
+			break
+    	default:
+      	text = "Looking forward to the Weekend";
+		}
+	}
+
+// lista = [];
+// i = 0;
+// x = 1;
+// while (x != 0) {
+// 	if((chegada.deltaP == Edges[i].num && Edges[i].name.match('fast') != null ) || (chegada.deltaM == Edges[i].num && && Edges[i].name.match('fast') != null )){
+// 		lista.unshift(Edges[i]);
+// 	}
+// 	i = i + 1;
+// 	if (i == (Edges.length + 1)) {
+// 		x = 0;
+// 	}
+// }
+
+// for (var i = 0; i < Edges.length; i++) {
+// 	if((chegada.deltaP == Edges[i].num && Edges[i].name.match('fast') != null ) || (chegada.deltaM == Edges[i].num && Edges[i].name.match('fast') != null )){
+// 			lista.unshift(Edges[i]);
+// 		}
+// }
+//
+// for (var i = 0; i < Nodes.length; i++) {
+// 	if(chegada.dist - lista[0].length == Nodes[i].dist){
+// 			lista.unshift(Nodes[i]);
+// 		}
+// }
+//
+// for (var i = 0; i < Edges.length; i++) {
+// 	if((lista[0].deltaP == Edges[i].num && Edges[i].name.match('fast') != null ) || (lista[0].deltaM == Edges[i].num && Edges[i].name.match('fast') != null ) || (lista[0].deltaM == Edges[i].num && Edges[i].name.match('fast') != null ) || (lista[0].deltaP == Edges[i].num && Edges[i].name.match('fast') != null )){
+// 			lista.unshift(Edges[i]);
+// 		}
+// }
+//
+// for (var i = 0; i < Nodes.length; i++) {
+// 	if((lista[1].dist - lista[0].length == Nodes[i].dist && lista[0].num == Nodes[i].deltaP) || (lista[1].dist - lista[0].length == Nodes[i].dist && lista[0].num == Nodes[i].deltaP)){
+// 			lista.unshift(Nodes[i]);
+// 		}
+// }
+
+
+	menu(1,[15,75]);
+	menu(2,[45,40]);
+	var dijkstra= new Dijkstra(canvas,myfont,isdigraph,nodes,edges,false);
+	// true: Prim, false: Dijkstra
+	dijkstra.start();
+</script><br>
+a (6,10) graph
+
+
+</td></tr>
+<tr><th align="left" bgcolor="#ffcc66" valign="center" width="120">
+<a href="http://www-b2.is.tokushima-u.ac.jp/~ikeda">Kenji Ikeda's<br>Home Page<b
+r></a></th>
+<th align="left" bgcolor="#ffcc66" valign="center">
+Last Modified:
+Tuesday, 01-Sep-2015 10:19:07 JST
+<br>
+</th></tr>
+</tbody></table>
+</body>
+
+</html>

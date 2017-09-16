@@ -1,0 +1,393 @@
+/* Reset */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+.text-custom {
+    color: #79BD80;
+}
+
+h2.title {
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0 0 15px;
+}
+
+h2.title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    border: 1px solid #fff;
+    margin: 10px auto 60px;
+}
+
+@media (max-width: 700px) {
+    h2.title::after {
+    margin: 10px auto 40px;
+}
+}
+
+hr {
+    border: 1px solid #e4e4e4;
+    margin: 20px auto;
+}
+
+/* Menu */
+
+.navbar {
+    background: transparent;
+    border-color: transparent;
+    position: fixed;
+    width: 100%;
+    transition: background 0.5s ease-in-out;
+    z-index: 4;
+    padding: 10px;
+}
+
+.navbar-black {
+    background-color: #252525;
+    position: fixed;
+    width: 100%;
+    transition: background 0.5s ease-in-out
+}
+
+.menu-logo {
+    display: block;
+    float: left;
+    width: 200px;
+    margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+    .menu-nav {
+    margin-right: 10px;
+    padding: 10px;
+    float: right;
+    }
+}
+
+
+.navbar-collapse {
+    border-color: transparent;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+    display: block;
+    float: right;    
+}
+
+@media (max-width: 767px) {
+.navbar-collapse.collapse.in {
+    overflow: visible !important;
+    padding: 0 15px;
+    -moz-transition: height 1s ease;
+    -webkit-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    transition: height 1s ease;
+    float: left;
+    border-color: transparent;
+    width: 100%;
+    }
+	.navbar-collapse {
+    border-color: transparent;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+    display: block;
+    float: left;    
+}
+}
+
+.collapse {
+    display: none;
+}
+.collapse.in {
+    display: block;
+}
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:focus  {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.125em;
+    border-bottom: 1px solid transparent;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li.active>a, .navbar-default .navbar-nav>li.active>a:focus {
+    padding: 10px 10px 5px;
+    color: #79BD80;
+    font-weight: 500;
+    border-bottom: 1px solid #79BD80;
+    background-color: transparent;
+}
+
+.nav-logo {
+    float: left;
+    width: 250px;
+}
+
+.navbar-push {
+    height: 80px;
+}
+
+@media (max-width: 767px) {
+    .nav-logo {
+    width: 200px;
+}
+}
+
+/* Intro */
+
+#intro {
+    background: url('../img/bg-intro.jpg') no-repeat center;
+    background-size: cover;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+#intro img {
+    width: 22em;
+    margin-bottom: 2em;
+}
+
+#intro h1 {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 400;
+    background-color: #79BD80;
+    color: #252525;
+    padding: 3px;
+    width: 320px;
+    margin: 0 auto 10px;
+}
+
+#intro h2 {
+    font-size: 2em;
+    font-weight: 700;
+    font-style: italic;
+    background-color: #79BD80;
+    color: #252525;
+    padding: 3px;
+    width: 180px;
+    margin: auto;
+}
+
+#intro p {
+    font-style: italic;
+    font-size: 1.125em;
+}
+
+@media (max-width: 991px) {
+    #intro {
+    padding: 80px 0;
+    }
+        #intro h1 {
+        width: 275px;
+    }
+
+    #intro h2 {
+        width: 170px;
+    }
+}
+@media (max-width: 767px) {
+    #intro {
+    padding: 50px 0;
+    }
+        #intro h1 {
+        width: 240px;
+    }
+
+    #intro h2 {
+        width: 140px;
+    }
+}
+/* Logo */
+
+#logos {
+    background-color: #fff;
+    padding: 5vh;
+    height: 30vh;
+}
+
+#logos img {
+    height: 5vh;
+}
+
+/*Sobre */
+#sobre {
+    background-color: #EDEDED;
+}
+#sobre h2 {
+    color: #79BD80;
+}
+
+#sobre h2::after {
+    border: 1px solid #79BD80;
+}
+
+#sobre .data {
+    float: left;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+#sobre h3 {
+    font-size: 1.25em;
+    color: #79BD80;
+    font-weight: 600;
+    margin: 0 0 5px 15px;
+}
+
+#sobre h4 {
+    font-size: 1.125em;
+    font-weight: 500;
+    margin: 0 0 0 15px;
+}
+
+#sobre img {
+    float: left;
+    position: relative;
+    width: 3em;
+
+}
+
+#sobre .text {
+    padding-right: 20px;
+    padding-left: 20px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+
+#sobre .logo img {
+    width: 300px;
+}
+
+.bg-fixed {
+    background: url('../img/bg-2.png') no-repeat center;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 30vw;
+}
+
+/*palestrantes */
+
+#palestrantes {
+    background-color: #333333;
+}
+#palestrantes .container {
+    width: 98vw;
+}
+#palestrantes h2 {
+    color: #EDEDED;
+}
+
+#palestrantes h2::after {
+    border: 1px solid #EDEDED;
+}
+
+#palestrantes h3 {
+    color: #C7C7C7;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+#palestrantes h4 {
+    color: #79BD80;
+    font-size: 1.25em;
+    font-weight: 300;
+    margin: 5px 0;
+}
+
+#palestrantes a:hover {
+    color: #79BD80;
+    font-weight: 600;
+}
+#palestrantes .col-4 {
+    height: 80px;
+}
+
+@media (max-width: 991px) {
+    .palestrante {
+    width: 46%;
+    }
+}
+
+@media (max-width: 767px) {
+    .palestrante {
+    width: 92%;
+    }
+}
+/* realizaÃ§Ã£o*/
+
+#realizacao h2 {
+    color: #959595;
+}
+
+#realizacao h2::after {
+    border: 1px solid #959595;
+}
+
+#realizacao img {
+    height: 6em;
+    width: auto;
+    margin: 0px 40px 50px;
+    filter: grayscale(1);
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+
+#realizacao img:hover {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0%);
+}
+
+/*InscriÃ§Ãµes*/
+#inscricao {
+    background-color: #79BD80;
+    margin-bottom: 70px;
+}
+
+#inscricao h2 {
+    color: #fff;
+}
+
+#inscricao h2::after {
+    border: 1px solid #fff;
+}
+
+#inscricao .alert {
+        padding: 1em;
+    margin: auto;
+    width: 9em;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+/*footer*/
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #252525;
+    height: 70px;
+    padding: 5px;
+    z-index: 10;
+}
+
+footer img {
+    display: table;
+    height: auto;
+    width: 15em;
+}

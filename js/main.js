@@ -1,6 +1,6 @@
 
 
-var box = document.querySelector('.box');
+var box = document.querySelector('#cliente1');
 box.addEventListener('click', function() {
 	box.classList.toggle('move');
 	box.classList.toggle('move2');
@@ -113,7 +113,7 @@ var x4y3Y = document.getElementById('A-1').offsetTop + 'px';
 document.getElementById('cliente19').style.left = x4y3X;
 document.getElementById('cliente19').style.top = x4y3Y;
 
-	
+
 
 	function add_partida(x,y) {
 		if (x == 0) {

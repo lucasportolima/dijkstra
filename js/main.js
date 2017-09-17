@@ -1,5 +1,5 @@
 
-
+// função para mover a bolinha
 var box = document.querySelector('#cliente1');
 box.addEventListener('click', function() {
 	box.classList.toggle('move');
@@ -13,6 +13,7 @@ box.addEventListener('click', function() {
 //(document.getElementById('C-4').offsetWidth + document.getElementById('C-4').offsetLeft) + 'px'
 
 
+// Add todas as bolinhas nos vertices
 var x0y0X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
 var x0y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
 document.getElementById('cliente').style.left = x0y0X;
@@ -114,68 +115,73 @@ document.getElementById('cliente19').style.left = x4y3X;
 document.getElementById('cliente19').style.top = x4y3Y;
 
 
-
-	function add_partida(x,y) {
-		if (x == 0) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-1').offsetLeft - 10) + 'px';
-		}else if (x > 0 && x < 15) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-1').offsetLeft + (parseInt(document.getElementById('C-1').offsetWidth/14) * x)) + 'px';
-		}else if (x == 15) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-2').offsetLeft - 10) + 'px';
-		}else if (x > 15 && x < 30) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-2').offsetLeft + (parseInt(document.getElementById('C-2').offsetWidth/14) * (x - 15))) + 'px';
-		}else if (x == 30) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-3').offsetLeft - 10) + 'px';
-		}else if (x > 30 && x < 45) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-3').offsetLeft + (parseInt(document.getElementById('C-3').offsetWidth/14) * (x - 30))) + 'px';
-		}else if (x == 45) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-4').offsetLeft - 10) + 'px';
-		}else if (x > 45 && x < 50) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-4').offsetLeft + (parseInt(document.getElementById('C-4').offsetWidth/4) * (x - 45))) + 'px';
-		}else if (x == 50) {
-			document.getElementById('partida').classList.add("cliente");
-			document.getElementById('partida').style.left = (document.getElementById('C-4').offsetLeft + document.getElementById('C-4').offsetWidth ) + 'px';
-		}else {
-			alert("valor invalido");
-		}
-
-		if (y == 0) {
-			document.getElementById('partida').style.top = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-		}else if (y > 0 && y < 20) {
-			document.getElementById('partida').style.top = (document.getElementById('C-1').offsetTop) + (parseInt(document.getElementById('C-1').offsetHeight/19) * y) + 'px';
-		}else if (y == 20) {
-			document.getElementById('partida').style.top = (document.getElementById('C-1').offsetTop) + 'px';
-		}else if (y > 20 && y < 50) {
-			document.getElementById('partida').style.top = (document.getElementById('B-1').offsetTop) + (parseInt(document.getElementById('B-1').offsetHeight/29) * (50 - y)) + 'px';
-		}else if (y == 50) {
-			document.getElementById('partida').style.top = document.getElementById('B-1').offsetTop + 'px';
-		}else if (y > 50 && y < 80) {
-			document.getElementById('partida').style.top = (document.getElementById('A-1').offsetTop) + (parseInt(document.getElementById('A-1').offsetHeight/29) * (80 - y)) + 'px';
-		}else if (y == 80) {
-			document.getElementById('partida').style.top = document.getElementById('A-1').offsetTop + 'px';
-		}else {
-			alert("valor invalido");
-		}
+// função que add a partida
+function add_partida(x,y) {
+	//falta verificar se os vertices são válidos
+	if (x == 0) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-1').offsetLeft - 10) + 'px';
+	}else if (x > 0 && x < 15) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-1').offsetLeft + (parseInt(document.getElementById('C-1').offsetWidth/14) * x)) + 'px';
+	}else if (x == 15) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-2').offsetLeft - 10) + 'px';
+	}else if (x > 15 && x < 30) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-2').offsetLeft + (parseInt(document.getElementById('C-2').offsetWidth/14) * (x - 15))) + 'px';
+	}else if (x == 30) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-3').offsetLeft - 10) + 'px';
+	}else if (x > 30 && x < 45) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-3').offsetLeft + (parseInt(document.getElementById('C-3').offsetWidth/14) * (x - 30))) + 'px';
+	}else if (x == 45) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-4').offsetLeft - 10) + 'px';
+	}else if (x > 45 && x < 50) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-4').offsetLeft + (parseInt(document.getElementById('C-4').offsetWidth/4) * (x - 45))) + 'px';
+	}else if (x == 50) {
+		document.getElementById('partida').classList.add("cliente");
+		document.getElementById('partida').style.left = (document.getElementById('C-4').offsetLeft + document.getElementById('C-4').offsetWidth ) + 'px';
+	}else {
+		alert("valor invalido");
 	}
 
-	function add_chegada() {
-
+	if (y == 0) {
+		document.getElementById('partida').style.top = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
+	}else if (y > 0 && y < 20) {
+		document.getElementById('partida').style.top = (document.getElementById('C-1').offsetTop) + (parseInt(document.getElementById('C-1').offsetHeight/19) * y) + 'px';
+	}else if (y == 20) {
+		document.getElementById('partida').style.top = (document.getElementById('C-1').offsetTop) + 'px';
+	}else if (y > 20 && y < 50) {
+		document.getElementById('partida').style.top = (document.getElementById('B-1').offsetTop) + (parseInt(document.getElementById('B-1').offsetHeight/29) * (50 - y)) + 'px';
+	}else if (y == 50) {
+		document.getElementById('partida').style.top = document.getElementById('B-1').offsetTop + 'px';
+	}else if (y > 50 && y < 80) {
+		document.getElementById('partida').style.top = (document.getElementById('A-1').offsetTop) + (parseInt(document.getElementById('A-1').offsetHeight/29) * (80 - y)) + 'px';
+	}else if (y == 80) {
+		document.getElementById('partida').style.top = document.getElementById('A-1').offsetTop + 'px';
+	}else {
+		alert("valor invalido");
 	}
+}
 
-	function add_bloqueio() {
+//função add chegada, função igual da add_partida, com a diferença que
+//ela vai verificar se a chegada está em cima da partida.
+function add_chegada() {
 
-	}
+}
+
+//função bloqueio: vai ser add um pontinho no bloqueio, vai ser virificado se
+//esse ponto está em cima de ponrto, vai excluir aquela aresta que ele está em cima.
+function add_bloqueio() {
+
+}
 
 
-//mais rapido
+//dados dos mais rapido
 var x0y0_x1y0 = parseInt((15/110) * 100);
 
 var x0y0_x0y1 = parseInt((20/90) * 100);
@@ -239,7 +245,4 @@ var x2y3_x3y3 = parseInt((15/30) * 100);
 var x3y3_x4y3 = parseInt((5/30) * 100);
 
 
-
-
-
-//mais curto
+//dados do mais curto

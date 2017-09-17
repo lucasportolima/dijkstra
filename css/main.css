@@ -1,6 +1,5 @@
 
-
-
+/* MAPA */
 #map{
   background-color: black;
   width: 50vw;
@@ -244,10 +243,11 @@
   transform: rotate(-90deg);
   left: 70vw;
 }
+/*END MAPA*/
 
-
+/* PONTOS */
 #cliente{
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   background-color: red;
   width: 10px;
@@ -255,7 +255,7 @@
   margin-top: -10px;
 }
 .cliente{
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   background-color: red;
   width: 10px;
@@ -288,6 +288,8 @@
 	-webkit-transform: translate(100px, 100px);
   transform: translate(0px, 160px);
 }
+
+/* PONTOS */
 
 /* MOBILE */
 @media (min-width: 300px) and (max-width: 450px) {
@@ -712,92 +714,36 @@
 
 
 
-.oo {
-  display: inline-block;
-  width: 100px;
-  height: 40px;
-  border-radius: 50px;
-  background-color: #363836;
-}
 
-.ball-academico {
-  height: 30px;
-  width: 30px;
-  border-radius: 40px;
-  background-color: #fefefe;
-  margin: 6px;
-  -webkit-animation: switch 2s infinite alternate;
-  -moz-animation: switch 2s infinite alternate;
-  -o-animation: switch 2s infinite alternate;
-  transition-property: margin;
-  transition-duration: 1s;
-}
-
-.ball-profissional {
-  height: 30px;
-  width: 30px;
-  border-radius: 40px;
-  background-color: #fefefe;
-  margin-top: 6px;
-  margin-left: 65px;
-  -webkit-animation: switch 2s infinite alternate;
-  -moz-animation: switch 2s infinite alternate;
-  -o-animation: switch 2s infinite alternate;
-  transition-property: margin;
-  transition-duration: 1s;
-}
 
 .esconder{
 	display: none;
 }
 
-
-/**/
-.basic-slide {
-  display: inline-block;
-  width: 215px;
-  padding: 10px 0 10px 15px;
-  font-family: "Open Sans", sans;
-  font-weight: 400;
-  color: #377D6A;
-  background: #efefef;
-  border: 0;
-  border-radius: 3px;
-  outline: 0;
-  text-indent: 70px; // Arbitrary.
-  transition: all .3s ease-in-out;
-
-  &::-webkit-input-placeholder {
-    color: #efefef;
-    text-indent: 0;
-    font-weight: 300;
-  }
-
-  + label {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 15px;
-    text-shadow: 0 1px 0 rgba(19,74,70,.4);
-    background: #7AB893;
-    transition: all .3s ease-in-out;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-  }
+#dados input{
+  width: 10vw;
+  border-radius: 5%;
 }
-.basic-slide:focus,
-.basic-slide:active {
-  color: #377D6A;
-  text-indent: 0;
-  background: #fff;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 
-  &::-webkit-input-placeholder {
-    color: #aaa;
-  }
-  + label {
-    transform: translateX(-100%);
-  }
+.liDadosRuas{
+  list-style-type: none;
+}
+
+.inputs{
+  display: inline-flex;
+  padding-top: 8%;
+}
+
+.labels{
+  display: block;
+  position: absolute;
+  margin-top: 0.5%;
+}
+
+.dadosRua{
+  height: 18vh;
+  width: 9.8vw;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 2%;
 }

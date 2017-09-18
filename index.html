@@ -24,7 +24,7 @@
 </head>
 
 
-<body id="page-top" data-spy="scroll" data-target="#scrollspy" data-offset="100" onload="add_partida(23,23);">
+<body id="page-top" data-spy="scroll" data-target="#scrollspy" data-offset="100">
   <!--<nav class="navbar navbar-default navbar-fixed-top" >
   <div class="container-fluid nav">
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-main-collapse">
@@ -164,16 +164,16 @@
         <div id="dados" class="col-4" style="padding-right: 4.5%; margin-left: -5%;">
           <strong class="labels">Início</strong>
           <div class="inputs">
-            <input type="text" name="inicio" value="" placeholder="x">-<input type="text" name="inicio" value="" placeholder="y">
-            <button type="button" name="enviar-inicio">OK</button>
+            <input id="inputInicioX" type="text" name="inicio" value="" placeholder="x">-<input id="inputInicioY" type="text" name="inicio" value="" placeholder="y">
+            <button type="button" name="enviar-inicio" onclick="add_partida();">OK</button>
             <button type="button" name="limpar-inicio">Limpar</button>
           </div>
           <strong id="strong-inicio"></strong>
 
           <strong class="labels">Final</strong>
           <div class="inputs">
-            <input type="text" name="final" value="" placeholder="x">-<input type="text" name="final" value="" placeholder="y">
-            <button type="button" name="enviar-final">OK</button>
+            <input id="inputFinalX" type="text" name="final" value="" placeholder="x">-<input id="inputFinalY" type="text" name="final" value="" placeholder="y">
+            <button type="button" name="enviar-final" onclick="add_chegada();">OK</button>
             <button type="button" name="limpar-final">Limpar</button>
           </div>
           <strong id="strong-final"></strong>

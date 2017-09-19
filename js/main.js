@@ -337,11 +337,12 @@ function gerarCaminho(valor){
 	if (aux.offsetTop != document.getElementById(nome).offsetTop) {
 		if (aux.offsetTop > document.getElementById(nome).offsetTop) {
 			diferenca = aux.offsetTop - document.getElementById(nome).offsetTop;
+			diferenca = -diferenca
 		}else{
 			diferenca = document.getElementById(nome).offsetTop - aux.offsetTop;
 		}
 
-		aux.style.transform = 'translate(' + (diferenca+valor) + 'px,0px)';
+		aux.style.transform = 'translate(0px,' + diferenca + 'px)';
 		aux.offsetLeft = document.getElementById(nome).offsetLeft;
 		aux.offsetTop = document.getElementById(nome).offsetTop;
 	}
@@ -349,20 +350,21 @@ function gerarCaminho(valor){
 		// alert('ta no y')
 		if (aux.offsetLeft > document.getElementById(nome).offsetLeft) {
 			diferenca = aux.offsetLeft - document.getElementById(nome).offsetLeft;
+			diferenca = -diferenca
 		}else{
 			diferenca = document.getElementById(nome).offsetLeft - aux.offsetLeft;
 		}
 
-		aux.style.transform = 'translate(' + (diferenca+valor) + 'px,0px)';
+		aux.style.transform = 'translate(' + diferenca + 'px,0px)';
 		aux.offsetLeft = document.getElementById(nome).offsetLeft;
 		aux.offsetTop = document.getElementById(nome).offsetTop;
 	}
 
-	setTimeout(function()
-    {
-        gerarCaminho(valor + 1);
+	// setTimeout(function()
+ //    {
+ //        gerarCaminho(valor + 1);
 
-    }, 2000);
+ //    }, 2000);
 
 	// aux.style.transform = 'translate(' + diferenca + 'px,0px)';
 	// if (valor != null || diferenca != diferenca + 100) {

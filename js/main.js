@@ -321,3 +321,52 @@ var x3y3_x4y3 = parseInt((5/30) * 100);
 
 
 //dados do mais curto
+
+
+function gerarCaminho(valor){
+
+	aux = document.getElementById('partida');
+	aux.style.backgroundColor = 'blue';
+	if (valor == 0) {
+			nome = "cliente";
+	}else {
+		nome = "cliente" + valor;
+	}
+
+
+	if (aux.offsetTop != document.getElementById(nome).offsetTop) {
+		if (aux.offsetTop > document.getElementById(nome).offsetTop) {
+			diferenca = aux.offsetTop - document.getElementById(nome).offsetTop;
+		}else{
+			diferenca = document.getElementById(nome).offsetTop - aux.offsetTop;
+		}
+
+		aux.style.transform = 'translate(' + (diferenca+valor) + 'px,0px)';
+		aux.offsetLeft = document.getElementById(nome).offsetLeft;
+		aux.offsetTop = document.getElementById(nome).offsetTop;
+	}
+	if (aux.offsetLeft != document.getElementById(nome).offsetLeft) {
+		// alert('ta no y')
+		if (aux.offsetLeft > document.getElementById(nome).offsetLeft) {
+			diferenca = aux.offsetLeft - document.getElementById(nome).offsetLeft;
+		}else{
+			diferenca = document.getElementById(nome).offsetLeft - aux.offsetLeft;
+		}
+
+		aux.style.transform = 'translate(' + (diferenca+valor) + 'px,0px)';
+		aux.offsetLeft = document.getElementById(nome).offsetLeft;
+		aux.offsetTop = document.getElementById(nome).offsetTop;
+	}
+
+	setTimeout(function()
+    {
+        gerarCaminho(valor + 1);
+
+    }, 2000);
+
+	// aux.style.transform = 'translate(' + diferenca + 'px,0px)';
+	// if (valor != null || diferenca != diferenca + 100) {
+	// 	diferenca = diferenca + 20
+	// 	aux.style.transform = 'translate(' + diferenca + 'px,0px)';
+	// }
+}

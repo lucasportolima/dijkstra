@@ -141,51 +141,124 @@ function add_bloqueio() {
 
 function gerarCaminho(map){
 
-	//mapCurto.partida = {cliente3:10, cliente1:23}
+	// map.partida = {cliente3:10, cliente1:23}
 
-	// arrayX = [0,15,30,45,50];
-	// arrayY = [0,20,50,80];
+	arrayX = [0,15,30,45,50];
+	arrayY = [0,20,50,80];
 	
-	// var vertice;
+	var vertice;
 
-	// // Implementar a inserção da partida no map
+	// Implementar a inserção da partida no map
 
-	// xPartida = parseInt(document.getElementById('inputInicioX').value);
-	// yPartida = parseInt(document.getElementById('inputInicioY').value);
+	xPartida = parseInt(document.getElementById('inputInicioX').value);
+	yPartida = parseInt(document.getElementById('inputInicioY').value);
 
-	// if (arrayX.indexOf(xPartida) > -1 && arrayY.indexOf(yPartida) > -1) {
-	// 	// Em cima do vertice
-	// }
+	if (arrayX.indexOf(xPartida) > -1 && arrayY.indexOf(yPartida) > -1) {
+		// Em cima do vertice
+	}
 
-	// if (arrayX.indexOf(xPartida) < 0) {
-	// 	// perpenticular ao y
-	// 	vertice = "y";
-	// }
+	if (arrayX.indexOf(xPartida) < 0) {
+		// perpenticular ao y
+		vertice = "y";
+	}
 
-	// if (vertice == "y") {
-	// 	//vamos mexer no x
-	// 	if (xPartida > 0 && xPartida < 15) {
+	if (vertice == "y") {
+		//vamos mexer no x
+		if (xPartida > 0 && xPartida < 15) {
+			if (xPartida - 15 < 0) {
+				auxX = (xPartida - 15) * - 1; 
+			}else{
+				auxX = xPartida - 15;
+			}
+			if (yPartida == 0) {
+				map.partida = {cliente0:xPartida, cliente4:auxX}
+			}else if (yPartida == 20) {
+				map.partida = {cliente1:xPartida, cliente5:auxX}
+			}else if (yPartida == 50){
+				map.partida = {cliente2:xPartida, cliente6:auxX}
+			}else{
+				map.partida = {cliente3:xPartida, cliente7:auxX}
+			}
+		}else if (xPartida > 15 && xPartida < 30) {
+			if (xPartida - 30 < 0) {
+				auxX = (xPartida - 30) * - 1; 
+			}else{
+				auxX = xPartida - 30;
+			}
+			if (yPartida == 0) {
+				map.partida = {cliente4:xPartida, cliente8:auxX}
+			}else if (yPartida == 20) {
+				map.partida = {cliente5:xPartida, cliente9:auxX}
+			}else if (yPartida == 50){
+				map.partida = {cliente6:xPartida, cliente10:auxX}
+			}else{
+				map.partida = {cliente7:xPartida, cliente11:auxX}
+			}
+		}else if (xPartida > 30 && xPartida < 45) {
+			if (xPartida - 45 < 0) {
+				auxX = (xPartida - 45) * - 1; 
+			}else{
+				auxX = xPartida - 45;
+			}
+			if (yPartida == 0) {
+				map.partida = {cliente8:xPartida, cliente12:auxX}
+			}else if (yPartida == 20) {
+				map.partida = {cliente9:xPartida, cliente13:auxX}
+			}else if (yPartida == 50){
+				map.partida = {cliente10:xPartida, cliente14:auxX}
+			}else{
+				map.partida = {cliente11:xPartida, cliente15:auxX}
+			}
+		}else {
+			if (xPartida - 50 < 0) {
+				auxX = (xPartida - 50) * - 1; 
+			}else{
+				auxX = xPartida - 50;
+			}
+			if (yPartida == 0) {
+				map.partida = {cliente12:xPartida, cliente16:auxX}
+			}else if (yPartida == 20) {
+				map.partida = {cliente13:xPartida, cliente17:auxX}
+			}else if (yPartida == 50){
+				map.partida = {cliente14:xPartida, cliente18:auxX}
+			}else{
+				map.partida = {cliente15:xPartida, cliente19:auxX}
+			}
+		}
+	}else{
+		//vamos mexer no y
+		if (yPartida > 0 && yPartida < 20) {
+			if (xPartida > 0 && xPartida < 15) {
 
-	// 	}else if (xPartida > 15 && xPartida < 30) {
+			}else if (xPartida > 15 && xPartida < 30) {
 
-	// 	}else if (xPartida > 30 && xPartida < 45) {
+			}else if (xPartida > 30 && xPartida < 45) {
 
-	// 	}else {
+			}else {
 
-	// 	}
+			}
+		}else if (yPartida > 20 && yPartida < 50) {
+			if (xPartida > 0 && xPartida < 15) {
 
-	// }else{
-	// 	//vamos mexer no y
-	// 	if (yPartida > 0 && yPartida < 20) {
+			}else if (xPartida > 15 && xPartida < 30) {
 
-	// 	}else if (yPartida > 20 && yPartida < 50) {
+			}else if (xPartida > 30 && xPartida < 45) {
 
-	// 	}else {
+			}else {
 
-	// 	}
+			}
+		}else {
+			if (xPartida > 0 && xPartida < 15) {
 
-	// }
+			}else if (xPartida > 15 && xPartida < 30) {
 
+			}else if (xPartida > 30 && xPartida < 45) {
+
+			}else {
+
+			}
+		}
+	}
 
 
 	// Implementar a inserção da chegada no map
@@ -201,7 +274,7 @@ function gerarCaminho(map){
 
 
 	graph = new Graph(map);
-  	array = graph.findShortestPath('cliente0', 'cliente19');
+  	array = graph.findShortestPath('partida', 'cliente19');
 
 	for (var i = 0; i < 19; i++) {
 		$('#cliente' + i).hide();

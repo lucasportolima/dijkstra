@@ -21,11 +21,13 @@
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/vertices.js"></script>
   <script src="js/dijkstra.js"></script>
+  <script src="js/dados.js"></script>
 </head>
 
 
-<body id="page-top" data-spy="scroll" data-target="#scrollspy" data-offset="100">
+<body id="page-top" data-spy="scroll" data-target="#scrollspy" data-offset="100" onload="carregaVertices();">
   <!--<nav class="navbar navbar-default navbar-fixed-top" >
   <div class="container-fluid nav">
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-main-collapse">
@@ -186,7 +188,8 @@
             <button type="button" name="limpar-bloqueio">Excluir</button>
           </div>
           <strong id="strong-bloqueio"></strong>
-            <button class type="button" name="Gerar" onclick="gerarCaminho(16);">Gerar</button>
+            <button class type="button" name="Gerar" onclick="gerarCaminho(mapRapido);">Gerar caminho rápido</button>
+            <button class type="button" name="Gerar" onclick="gerarCaminho(mapCurto);">Gerar caminho curto</button>
           <div class="inputs">
 
           </div>
@@ -302,129 +305,11 @@
       // O bloqueio vai ser um vertice, ele sera passado por parametro e esse vertice setá excluido do map.
 
 
-      var cliente0_cliente4 = parseInt((15/110) * 100);
-      var cliente4_cliente0 = parseInt((15/110) * 100);
-
-      var cliente0_cliente1 = parseInt((20/90) * 100);
-      var cliente1_cliente0 = parseInt((20/90) * 100);
-
-      var cliente4_cliente8 = parseInt((15/110) * 100);
-      var cliente8_cliente4 = parseInt((15/110) * 100);
-
-      var cliente4_cliente5 = parseInt((20/40) * 100);
-      var cliente5_cliente4 = parseInt((20/40) * 100);
-
-      var cliente8_cliente12 = parseInt((15/110) * 100);
-      var cliente12_cliente8 = parseInt((15/110) * 100);
-
-      var cliente8_cliente9 = parseInt((20/50) * 100);
-      var cliente9_cliente8 = parseInt((20/50) * 100);
-
-      var cliente12_cliente16 = parseInt((5/110) * 100);
-      var cliente16_cliente12 = parseInt((5/110) * 100);
-
-      var cliente12_cliente13 = parseInt((20/40) * 100);
-      var cliente13_cliente12 = parseInt((20/40) * 100);
-
-      var cliente16_cliente17 = parseInt((20/50) * 100);
-      var cliente17_cliente16 = parseInt((20/50) * 100);
-
-      var cliente1_cliente5 = parseInt((15/60) * 100);
-      var cliente5_cliente1 = parseInt((15/60) * 100);
-
-      var cliente1_cliente2 = parseInt((30/90) * 100);
-      var cliente2_cliente1 = parseInt((30/90) * 100);
-
-      var cliente5_cliente9 = parseInt((15/60) * 100);
-      var cliente9_cliente5 = parseInt((15/60) * 100);
-
-      var cliente5_cliente6 = parseInt((30/40) * 100);
-      var cliente6_cliente5 = parseInt((30/40) * 100);
-
-      var cliente9_cliente13 = parseInt((15/60) * 100);
-      var cliente13_cliente9 = parseInt((15/60) * 100);
-
-      var cliente9_cliente10 = parseInt((30/50) * 100);
-      var cliente10_cliente9 = parseInt((30/50) * 100);
-
-      var cliente13_cliente17 = parseInt((5/60) * 100);
-      var cliente17_cliente13 = parseInt((5/60) * 100);
-
-      var cliente13_cliente14 = parseInt((30/40) * 100);
-      var cliente14_cliente13 = parseInt((30/40) * 100);
-
-      var cliente17_cliente18 = parseInt((30/50) * 100);
-      var cliente18_cliente17 = parseInt((30/50) * 100);
-
-      var cliente2_cliente6 = parseInt((15/80) * 100);
-      var cliente6_cliente2 = parseInt((15/80) * 100);
-
-      var cliente2_cliente3 = parseInt((30/90) * 100);
-      var cliente3_cliente2 = parseInt((30/90) * 100);
-
-      var cliente6_cliente10 = parseInt((15/80) * 100);
-      var cliente10_cliente6 = parseInt((15/80) * 100);
-
-      var cliente6_cliente7 = parseInt((30/40) * 100);
-      var cliente7_cliente6 = parseInt((30/40) * 100);
-
-      var cliente10_cliente14 = parseInt((15/80) * 100);
-      var cliente14_cliente10 = parseInt((15/80) * 100);
-
-      var cliente10_cliente11 = parseInt((30/50) * 100);
-      var cliente11_cliente10 = parseInt((30/50) * 100);
-
-      var cliente14_cliente18 = parseInt((5/80) * 100);
-      var cliente18_cliente14 = parseInt((5/80) * 100);
-
-      var cliente14_cliente15 = parseInt((30/40) * 100);
-      var cliente15_cliente14 = parseInt((30/40) * 100);
-
-      var cliente18_cliente19 = parseInt((30/50) * 100);
-      var cliente19_cliente18 = parseInt((30/50) * 100);
-
-      var cliente3_cliente7 = parseInt((15/30) * 100);
-      var cliente7_cliente3 = parseInt((15/30) * 100);
-
-      var cliente7_cliente11 = parseInt((15/30) * 100);
-      var cliente11_cliente7 = parseInt((15/30) * 100);
-
-      var cliente11_cliente15 = parseInt((15/30) * 100);
-      var cliente15_cliente11 = parseInt((15/30) * 100);
-
-      var cliente15_cliente19 = parseInt((5/30) * 100);
-      var cliente19_cliente15 = parseInt((5/30) * 100);
-
-      // cliente0 |
-      var map = {
-        cliente0:{cliente4:cliente0_cliente4,cliente1:cliente0_cliente1},
-        cliente1:{cliente0:cliente1_cliente0,cliente5:cliente1_cliente5,cliente2:cliente1_cliente2},
-        cliente2:{cliente1:cliente2_cliente1,cliente6:cliente2_cliente6,cliente3:cliente2_cliente3},
-        cliente3:{cliente2:cliente3_cliente2,cliente7:cliente3_cliente7},
-        cliente4:{cliente0:cliente4_cliente0,cliente8:cliente4_cliente8,cliente5:cliente4_cliente5},
-        cliente5:{cliente4:cliente5_cliente4,cliente1:cliente5_cliente1,cliente9:cliente5_cliente9,cliente6:cliente5_cliente6},
-        cliente6:{cliente5:cliente6_cliente5,cliente2:cliente6_cliente2,cliente10:cliente6_cliente10,cliente7:cliente6_cliente7},
-        cliente7:{cliente6:cliente7_cliente6,cliente3:cliente7_cliente3},
-        cliente8:{cliente4:cliente8_cliente4,cliente12:cliente8_cliente12,cliente9:cliente8_cliente9},
-        cliente9:{cliente8:cliente9_cliente8,cliente5:cliente9_cliente5,cliente13:cliente9_cliente13,cliente10:cliente9_cliente10},
-        cliente10:{cliente9:cliente10_cliente9,cliente6:cliente10_cliente6,cliente14:cliente10_cliente14,cliente11:cliente10_cliente11},
-        cliente11:{cliente10:cliente11_cliente10,cliente7:cliente11_cliente7,cliente15:cliente11_cliente15},
-        cliente12:{cliente8:cliente12_cliente8,cliente16:cliente12_cliente16,cliente13:cliente12_cliente13},
-        cliente13:{cliente12:cliente13_cliente12,cliente9:cliente13_cliente9,cliente17:cliente13_cliente17,cliente14:cliente13_cliente14},
-        cliente14:{cliente13:cliente14_cliente13,cliente10:cliente14_cliente10,cliente15:cliente14_cliente15,cliente18:cliente14_cliente18},
-        cliente15:{cliente14:cliente15_cliente14,cliente11:cliente15_cliente11,cliente19:cliente15_cliente19},
-        cliente16:{cliente12:cliente16_cliente12,cliente17:cliente16_cliente17},
-        cliente17:{cliente16:cliente17_cliente16,cliente13:cliente17_cliente13,cliente18:cliente17_cliente18},
-        cliente18:{cliente17:cliente18_cliente17,cliente14:cliente18_cliente14,cliente19:cliente18_cliente19},
-        cliente19:{cliente18:cliente19_cliente18,cliente15:cliente19_cliente15},
-      };
+      
 
 
       // var map = {a:{b:3,c:1},b:{a:2,c:1},c:{a:4,b:1}};
-          graph = new Graph(map);
-          aux = graph.findShortestPath('cliente0', 'cliente19');
-          gerarCaminho(aux);
-      // alert(graph.findShortestPath('a', 'c'));
+                // alert(graph.findShortestPath('a', 'c'));
       // alert(graph.findShortestPath('b', 'a'));
       // alert(graph.findShortestPath('b', 'c', 'b'));
       // alert(graph.findShortestPath('c', 'a', 'b'));

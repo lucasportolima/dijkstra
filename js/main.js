@@ -1,125 +1,3 @@
-
-// função para mover a bolinha
-var box = document.querySelector('#cliente1');
-box.addEventListener('click', function() {
-	box.classList.toggle('move');
-	box.classList.toggle('move2');
-});
-
-//vou usar
-//document.getElementsByClassName('move')[0].style.transform = 'translate(-100px, -250px)'
-
-//Descobrir a largura
-//(document.getElementById('C-4').offsetWidth + document.getElementById('C-4').offsetLeft) + 'px'
-//
-// var x0y0X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
-// var x0y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-// document.getElementById('partida').style.left = x0y0X;
-// document.getElementById('partida').style.top = x0y0Y;
-
-
-// Add todas as bolinhas nos vertices
-var x0y0X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
-var x0y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-document.getElementById('cliente0').style.left = x0y0X;
-document.getElementById('cliente0').style.top = x0y0Y;
-
-var x0y1X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
-var x0y1Y = (document.getElementById('C-1').offsetTop) + 'px';
-document.getElementById('cliente1').style.left = x0y1X;
-document.getElementById('cliente1').style.top = x0y1Y;
-
-var x0y2X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
-var x0y2Y = document.getElementById('B-1').offsetTop + 'px';
-document.getElementById('cliente2').style.left = x0y2X;
-document.getElementById('cliente2').style.top = x0y2Y;
-
-var x0y3X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
-var x0y3Y = document.getElementById('A-1').offsetTop + 'px';
-document.getElementById('cliente3').style.left = x0y3X;
-document.getElementById('cliente3').style.top = x0y3Y;
-
-var x1y0X = (document.getElementById('C-2').offsetLeft - 10) + 'px';
-var x1y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-document.getElementById('cliente4').style.left = x1y0X;
-document.getElementById('cliente4').style.top = x1y0Y;
-
-var x1y1X = (document.getElementById('C-2').offsetLeft - 10) + 'px';
-var x1y1Y = (document.getElementById('C-1').offsetTop) + 'px';
-document.getElementById('cliente5').style.left = x1y1X;
-document.getElementById('cliente5').style.top = x1y1Y;
-
-var x1y2X = (document.getElementById('C-2').offsetLeft - 10) + 'px';
-var x1y2Y = document.getElementById('B-1').offsetTop + 'px';
-document.getElementById('cliente6').style.left = x1y2X;
-document.getElementById('cliente6').style.top = x1y2Y;
-
-var x1y3X = (document.getElementById('C-2').offsetLeft - 10) + 'px';
-var x1y3Y = document.getElementById('A-1').offsetTop + 'px';
-document.getElementById('cliente7').style.left = x1y3X;
-document.getElementById('cliente7').style.top = x1y3Y;
-
-var x2y0X = (document.getElementById('C-3').offsetLeft - 10) + 'px';
-var x2y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-document.getElementById('cliente8').style.left = x2y0X;
-document.getElementById('cliente8').style.top = x2y0Y;
-
-var x2y1X = (document.getElementById('C-3').offsetLeft - 10) + 'px';
-var x2y1Y = (document.getElementById('C-1').offsetTop) + 'px';
-document.getElementById('cliente9').style.left = x2y1X;
-document.getElementById('cliente9').style.top = x2y1Y;
-
-var x2y2X = (document.getElementById('C-3').offsetLeft - 10) + 'px';
-var x2y2Y = document.getElementById('B-1').offsetTop + 'px';
-document.getElementById('cliente10').style.left = x2y2X;
-document.getElementById('cliente10').style.top = x2y2Y;
-
-var x2y3X = (document.getElementById('C-3').offsetLeft - 10) + 'px';
-var x2y3Y = document.getElementById('A-1').offsetTop + 'px';
-document.getElementById('cliente11').style.left = x2y3X;
-document.getElementById('cliente11').style.top = x2y3Y;
-
-var x3y0X = (document.getElementById('C-4').offsetLeft - 10) + 'px';
-var x3y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-document.getElementById('cliente12').style.left = x3y0X;
-document.getElementById('cliente12').style.top = x3y0Y;
-
-var x3y1X = (document.getElementById('C-4').offsetLeft - 10) + 'px';
-var x3y1Y = (document.getElementById('C-1').offsetTop) + 'px';
-document.getElementById('cliente13').style.left = x3y1X;
-document.getElementById('cliente13').style.top = x3y1Y;
-
-var x3y2X = (document.getElementById('C-4').offsetLeft - 10) + 'px';
-var x3y2Y = document.getElementById('B-1').offsetTop + 'px';
-document.getElementById('cliente14').style.left = x3y2X;
-document.getElementById('cliente14').style.top = x3y2Y;
-
-var x3y3X = (document.getElementById('C-4').offsetLeft - 10) + 'px';
-var x3y3Y = document.getElementById('A-1').offsetTop + 'px';
-document.getElementById('cliente15').style.left = x3y3X;
-document.getElementById('cliente15').style.top = x3y3Y;
-
-var x4y0X = (document.getElementById('C-4').offsetLeft + document.getElementById('C-4').offsetWidth ) + 'px';
-var x4y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-document.getElementById('cliente16').style.left = x4y0X;
-document.getElementById('cliente16').style.top = x4y0Y;
-
-var x4y1X = (document.getElementById('C-4').offsetLeft + document.getElementById('C-4').offsetWidth) + 'px';
-var x4y1Y = (document.getElementById('C-1').offsetTop) + 'px';
-document.getElementById('cliente17').style.left = x4y1X;
-document.getElementById('cliente17').style.top = x4y1Y;
-
-var x4y2X = (document.getElementById('C-4').offsetLeft + document.getElementById('C-4').offsetWidth) + 'px';
-var x4y2Y = document.getElementById('B-1').offsetTop + 'px';
-document.getElementById('cliente18').style.left = x4y2X;
-document.getElementById('cliente18').style.top = x4y2Y;
-
-var x4y3X = (document.getElementById('C-4').offsetLeft + document.getElementById('C-4').offsetWidth) + 'px';
-var x4y3Y = document.getElementById('A-1').offsetTop + 'px';
-document.getElementById('cliente19').style.left = x4y3X;
-document.getElementById('cliente19').style.top = x4y3Y;
-
-
 // função que add a partida
 function add_partida() {
 	//falta verificar se os vertices são válidos
@@ -261,126 +139,75 @@ function add_bloqueio() {
 
 }
 
+function gerarCaminho(map){
 
-//dados dos mais rapido
-var x0y0_x1y0 = parseInt((15/110) * 100);
+	//mapCurto.partida = {cliente3:10, cliente1:23}
 
-var x0y0_x0y1 = parseInt((20/90) * 100);
+	// arrayX = [0,15,30,45,50];
+	// arrayY = [0,20,50,80];
+	
+	// var vertice;
 
-var x1y0_x2y0 = parseInt((15/110) * 100);
+	// // Implementar a inserção da partida no map
 
-var x1y0_x1y1 = parseInt((20/40) * 100);
+	// xPartida = parseInt(document.getElementById('inputInicioX').value);
+	// yPartida = parseInt(document.getElementById('inputInicioY').value);
 
-var x2y0_x3y0 = parseInt((15/110) * 100);
+	// if (arrayX.indexOf(xPartida) > -1 && arrayY.indexOf(yPartida) > -1) {
+	// 	// Em cima do vertice
+	// }
 
-var x2y0_x2y1 = parseInt((20/50) * 100);
+	// if (arrayX.indexOf(xPartida) < 0) {
+	// 	// perpenticular ao y
+	// 	vertice = "y";
+	// }
 
-var x3y0_x4y0 = parseInt((5/110) * 100);
+	// if (vertice == "y") {
+	// 	//vamos mexer no x
+	// 	if (xPartida > 0 && xPartida < 15) {
 
-var x3y0_x3y1 = parseInt((20/40) * 100);
+	// 	}else if (xPartida > 15 && xPartida < 30) {
 
-var x4y0_x4y1 = parseInt((20/50) * 100);
+	// 	}else if (xPartida > 30 && xPartida < 45) {
 
-var x0y1_x1y1 = parseInt((15/60) * 100);
+	// 	}else {
 
-var x0y1_x0y2 = parseInt((30/90) * 100);
+	// 	}
 
-var x1y1_x2y1 = parseInt((15/60) * 100);
+	// }else{
+	// 	//vamos mexer no y
+	// 	if (yPartida > 0 && yPartida < 20) {
 
-var x1y1_x1y2 = parseInt((30/40) * 100);
+	// 	}else if (yPartida > 20 && yPartida < 50) {
 
-var x2y1_x3y1 = parseInt((15/60) * 100);
+	// 	}else {
 
-var x2y1_x2y2 = parseInt((30/50) * 100);
+	// 	}
 
-var x3y1_x4y1 = parseInt((5/60) * 100);
-
-var x3y1_x3y2 = parseInt((30/40) * 100);
-
-var x4y1_x4y2 = parseInt((30/50) * 100);
-
-var x0y2_x1y2 = parseInt((15/80) * 100);
-
-var x0y2_x0y3 = parseInt((30/90) * 100);
-
-var x1y2_x2y2 = parseInt((15/80) * 100);
-
-var x1y2_x1y3 = parseInt((30/40) * 100);
-
-var x2y2_x3y2 = parseInt((15/80) * 100);
-
-var x2y2_x2y3 = parseInt((30/50) * 100);
-
-var x3y2_x4y2 = parseInt((5/80) * 100);
-
-var x3y2_x3y3 = parseInt((30/40) * 100);
-
-var x4y2_x4y3 = parseInt((30/50) * 100);
-
-var x0y3_x1y3 = parseInt((15/30) * 100);
-
-var x1y3_x2y3 = parseInt((15/30) * 100);
-
-var x2y3_x3y3 = parseInt((15/30) * 100);
-
-var x3y3_x4y3 = parseInt((5/30) * 100);
+	// }
 
 
-//dados do mais curto
+
+	// Implementar a inserção da chegada no map
+	// Implementar a inserção do bloqueio no map
 
 
-function gerarCaminho(array){
 
-	// aux = document.getElementById('partida');
-	// aux.style.backgroundColor = 'blue';
+
+
+
+
+
+
+
+	graph = new Graph(map);
+  	array = graph.findShortestPath('cliente0', 'cliente19');
+
+	for (var i = 0; i < 19; i++) {
+		$('#cliente' + i).hide();
+	}
 
 	for (var i = 0; i < array.length; i++) {
 		$('#'+array[i]).show();
 	}
-	// // if (valor == 0) {
-	// // 		nome = "cliente";
-	// // }else {
-	// // 	nome = "cliente" + valor;
-	// // }
-	// nome = array[cont];
-  // alert(nome);
-	//
-	// if (aux.offsetTop != document.getElementById(nome).offsetTop) {
-	// 	nova_diferenca = diferenca;
-	// 	if (aux.offsetTop > document.getElementById(nome).offsetTop) {
-	// 		diferenca = aux.offsetTop - document.getElementById(nome).offsetTop;
-	// 		diferenca = -diferenca
-	// 	}else{
-	// 		diferenca = document.getElementById(nome).offsetTop - aux.offsetTop;
-	// 	}
-	//
-	// 	aux.style.transform = 'translate(' + nova_diferenca + 'px,' + diferenca + 'px)';
-	// 	aux.offsetLeft = document.getElementById(nome).offsetLeft;
-	// 	aux.offsetTop = document.getElementById(nome).offsetTop;
-	// }
-	// if (aux.offsetLeft != document.getElementById(nome).offsetLeft) {
-	// 	nova_diferenca = diferenca;
-	// 	if (aux.offsetLeft > document.getElementById(nome).offsetLeft) {
-	// 		diferenca = aux.offsetLeft - document.getElementById(nome).offsetLeft;
-	// 		diferenca = -diferenca
-	// 	}else{
-	// 		diferenca = document.getElementById(nome).offsetLeft - aux.offsetLeft;
-	// 	}
-	//
-	// 	aux.style.transform = 'translate(' + diferenca + 'px,' + nova_diferenca + 'px)';
-	// 	aux.offsetLeft = document.getElementById(nome).offsetLeft;
-	// 	aux.offsetTop = document.getElementById(nome).offsetTop;
-	// }
-// cont = cont + 1
-// 	setTimeout(function()
-//     {
-//         gerarCaminho(array, cont, diferenca);
-//
-//     }, 8000);
-
-	// aux.style.transform = 'translate(' + diferenca + 'px,0px)';
-	// if (valor != null || diferenca != diferenca + 100) {
-	// 	diferenca = diferenca + 20
-	// 	aux.style.transform = 'translate(' + diferenca + 'px,0px)';
-	// }
 }

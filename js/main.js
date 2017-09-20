@@ -11,13 +11,18 @@ box.addEventListener('click', function() {
 
 //Descobrir a largura
 //(document.getElementById('C-4').offsetWidth + document.getElementById('C-4').offsetLeft) + 'px'
+//
+// var x0y0X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
+// var x0y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
+// document.getElementById('partida').style.left = x0y0X;
+// document.getElementById('partida').style.top = x0y0Y;
 
 
 // Add todas as bolinhas nos vertices
 var x0y0X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
 var x0y0Y = (document.getElementById('C-1').offsetTop + document.getElementById('C-1').offsetHeight + 10) + 'px';
-document.getElementById('cliente').style.left = x0y0X;
-document.getElementById('cliente').style.top = x0y0Y;
+document.getElementById('cliente0').style.left = x0y0X;
+document.getElementById('cliente0').style.top = x0y0Y;
 
 var x0y1X = (document.getElementById('C-1').offsetLeft - 10) + 'px';
 var x0y1Y = (document.getElementById('C-1').offsetTop) + 'px';
@@ -176,6 +181,7 @@ function add_partida() {
 	}else {
 		alert("valor invalido");
 	}
+	$('#partida').show();
 }
 
 //função add chegada, função igual da add_partida, com a diferença que
@@ -323,48 +329,54 @@ var x3y3_x4y3 = parseInt((5/30) * 100);
 //dados do mais curto
 
 
-function gerarCaminho(valor){
+function gerarCaminho(array){
 
-	aux = document.getElementById('partida');
-	aux.style.backgroundColor = 'blue';
-	if (valor == 0) {
-			nome = "cliente";
-	}else {
-		nome = "cliente" + valor;
+	// aux = document.getElementById('partida');
+	// aux.style.backgroundColor = 'blue';
+
+	for (var i = 0; i < array.length; i++) {
+		$('#'+array[i]).show();
 	}
-
-
-	if (aux.offsetTop != document.getElementById(nome).offsetTop) {
-		if (aux.offsetTop > document.getElementById(nome).offsetTop) {
-			diferenca = aux.offsetTop - document.getElementById(nome).offsetTop;
-			diferenca = -diferenca
-		}else{
-			diferenca = document.getElementById(nome).offsetTop - aux.offsetTop;
-		}
-
-		aux.style.transform = 'translate(0px,' + diferenca + 'px)';
-		aux.offsetLeft = document.getElementById(nome).offsetLeft;
-		aux.offsetTop = document.getElementById(nome).offsetTop;
-	}
-	if (aux.offsetLeft != document.getElementById(nome).offsetLeft) {
-		// alert('ta no y')
-		if (aux.offsetLeft > document.getElementById(nome).offsetLeft) {
-			diferenca = aux.offsetLeft - document.getElementById(nome).offsetLeft;
-			diferenca = -diferenca
-		}else{
-			diferenca = document.getElementById(nome).offsetLeft - aux.offsetLeft;
-		}
-
-		aux.style.transform = 'translate(' + diferenca + 'px,0px)';
-		aux.offsetLeft = document.getElementById(nome).offsetLeft;
-		aux.offsetTop = document.getElementById(nome).offsetTop;
-	}
-
-	// setTimeout(function()
- //    {
- //        gerarCaminho(valor + 1);
-
- //    }, 2000);
+	// // if (valor == 0) {
+	// // 		nome = "cliente";
+	// // }else {
+	// // 	nome = "cliente" + valor;
+	// // }
+	// nome = array[cont];
+  // alert(nome);
+	//
+	// if (aux.offsetTop != document.getElementById(nome).offsetTop) {
+	// 	nova_diferenca = diferenca;
+	// 	if (aux.offsetTop > document.getElementById(nome).offsetTop) {
+	// 		diferenca = aux.offsetTop - document.getElementById(nome).offsetTop;
+	// 		diferenca = -diferenca
+	// 	}else{
+	// 		diferenca = document.getElementById(nome).offsetTop - aux.offsetTop;
+	// 	}
+	//
+	// 	aux.style.transform = 'translate(' + nova_diferenca + 'px,' + diferenca + 'px)';
+	// 	aux.offsetLeft = document.getElementById(nome).offsetLeft;
+	// 	aux.offsetTop = document.getElementById(nome).offsetTop;
+	// }
+	// if (aux.offsetLeft != document.getElementById(nome).offsetLeft) {
+	// 	nova_diferenca = diferenca;
+	// 	if (aux.offsetLeft > document.getElementById(nome).offsetLeft) {
+	// 		diferenca = aux.offsetLeft - document.getElementById(nome).offsetLeft;
+	// 		diferenca = -diferenca
+	// 	}else{
+	// 		diferenca = document.getElementById(nome).offsetLeft - aux.offsetLeft;
+	// 	}
+	//
+	// 	aux.style.transform = 'translate(' + diferenca + 'px,' + nova_diferenca + 'px)';
+	// 	aux.offsetLeft = document.getElementById(nome).offsetLeft;
+	// 	aux.offsetTop = document.getElementById(nome).offsetTop;
+	// }
+// cont = cont + 1
+// 	setTimeout(function()
+//     {
+//         gerarCaminho(array, cont, diferenca);
+//
+//     }, 8000);
 
 	// aux.style.transform = 'translate(' + diferenca + 'px,0px)';
 	// if (valor != null || diferenca != diferenca + 100) {

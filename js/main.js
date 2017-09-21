@@ -131,6 +131,7 @@ function add_chegada() {
 	}else {
 		alert("valor invalido");
 	}
+	$('#chegada').show();
 }
 
 //função bloqueio: vai ser add um pontinho no bloqueio, vai ser virificado se
@@ -255,13 +256,13 @@ function gerarCaminho(map){
 				auxX = xPartida - 30;
 			}
 			if (yPartida == 0) {
-				map.partida = {cliente4:xPartida, cliente8:auxX}
+				map.partida = {cliente4:xPartida - 15, cliente8:auxX}
 			}else if (yPartida == 20) {
-				map.partida = {cliente5:xPartida, cliente9:auxX}
+				map.partida = {cliente5:xPartida - 15, cliente9:auxX}
 			}else if (yPartida == 50){
-				map.partida = {cliente6:xPartida, cliente10:auxX}
+				map.partida = {cliente6:xPartida - 15, cliente10:auxX}
 			}else{
-				map.partida = {cliente7:xPartida, cliente11:auxX}
+				map.partida = {cliente7:xPartida - 15, cliente11:auxX}
 			}
 		}else if (xPartida > 30 && xPartida < 45) {
 			if (xPartida - 45 < 0) {
@@ -270,13 +271,13 @@ function gerarCaminho(map){
 				auxX = xPartida - 45;
 			}
 			if (yPartida == 0) {
-				map.partida = {cliente8:xPartida, cliente12:auxX}
+				map.partida = {cliente8:xPartida - 30, cliente12:auxX}
 			}else if (yPartida == 20) {
-				map.partida = {cliente9:xPartida, cliente13:auxX}
+				map.partida = {cliente9:xPartida - 30, cliente13:auxX}
 			}else if (yPartida == 50){
-				map.partida = {cliente10:xPartida, cliente14:auxX}
+				map.partida = {cliente10:xPartida - 30, cliente14:auxX}
 			}else{
-				map.partida = {cliente11:xPartida, cliente15:auxX}
+				map.partida = {cliente11:xPartida - 30, cliente15:auxX}
 			}
 		}else {
 			if (xPartida - 50 < 0) {
@@ -285,13 +286,13 @@ function gerarCaminho(map){
 				auxX = xPartida - 50;
 			}
 			if (yPartida == 0) {
-				map.partida = {cliente12:xPartida, cliente16:auxX}
+				map.partida = {cliente12:xPartida - 45, cliente16:auxX}
 			}else if (yPartida == 20) {
-				map.partida = {cliente13:xPartida, cliente17:auxX}
+				map.partida = {cliente13:xPartida - 45, cliente17:auxX}
 			}else if (yPartida == 50){
-				map.partida = {cliente14:xPartida, cliente18:auxX}
+				map.partida = {cliente14:xPartida - 45, cliente18:auxX}
 			}else{
-				map.partida = {cliente15:xPartida, cliente19:auxX}
+				map.partida = {cliente15:xPartida - 45, cliente19:auxX}
 			}
 		}
 	}else{
@@ -320,15 +321,15 @@ function gerarCaminho(map){
 				auxX = yPartida - 50;
 			}
 			if (xPartida == 0) {
-				map.partida = {cliente1:xPartida, cliente2:auxX}
+				map.partida = {cliente1:xPartida - 20, cliente2:auxX}
 			}else if (xPartida == 15) {
-				map.partida = {cliente5:xPartida, cliente6:auxX}
+				map.partida = {cliente5:xPartida - 20, cliente6:auxX}
 			}else if (xPartida == 30) {
-				map.partida = {cliente9:xPartida, cliente10:auxX}
+				map.partida = {cliente9:xPartida - 20, cliente10:auxX}
 			}else if (xPartida == 45) {
-				map.partida = {cliente13:xPartida, cliente14:auxX}
+				map.partida = {cliente13:xPartida - 20, cliente14:auxX}
 			}else {
-				map.partida = {cliente17:xPartida, cliente18:auxX}
+				map.partida = {cliente17:xPartida - 20, cliente18:auxX}
 			}
 		}else {
 			if (yPartida - 80 < 0) {
@@ -337,15 +338,15 @@ function gerarCaminho(map){
 				auxX = yPartida - 80;
 			}
 			if (xPartida == 0) {
-				map.partida = {cliente2:xPartida, cliente3:auxX}
+				map.partida = {cliente2:xPartida - 50, cliente3:auxX}
 			}else if (xPartida == 15) {
-				map.partida = {cliente6:xPartida, cliente7:auxX}
+				map.partida = {cliente6:xPartida - 50, cliente7:auxX}
 			}else if (xPartida == 30) {
-				map.partida = {cliente10:xPartida, cliente11:auxX}
+				map.partida = {cliente10:xPartida - 50, cliente11:auxX}
 			}else if (xPartida == 45) {
-				map.partida = {cliente14:xPartida, cliente15:auxX}
+				map.partida = {cliente14:xPartida - 50, cliente15:auxX}
 			}else {
-				map.partida = {cliente18:xPartida, cliente19:auxX}
+				map.partida = {cliente18:xPartida - 50, cliente19:auxX}
 			}
 		}
 	}
@@ -359,72 +360,73 @@ function gerarCaminho(map){
 	if (arrayX.indexOf(xChegada) > -1 && arrayY.indexOf(yChegada) > -1) {
 		if (xChegada == 0) {
 			if (yChegada == 0) {
-				map.chegada = map.cliente0
+				map.cliente0 = {cliente4:cliente0_cliente4,cliente1:cliente0_cliente1,chegada:0}
 			}
 			if (yChegada == 20) {
-				map.chegada = map.cliente1
+				map.cliente1 = {cliente0:cliente1_cliente0,cliente5:cliente1_cliente5,cliente2:cliente1_cliente2,chegada:0}
 			}
 			if (yChegada == 50) {
-				map.chegada = map.cliente2
+				map.cliente2 = {cliente1:cliente2_cliente1,cliente6:cliente2_cliente6,cliente3:cliente2_cliente3,chegada:0}
 			}
 			if (yChegada == 80) {
-				map.chegada = map.cliente3
+				map.cliente3 = {cliente2:cliente3_cliente2,cliente7:cliente3_cliente7,chegada:0}
 			}
 		}
 		if (xChegada == 15) {
 			if (yChegada == 0) {
-				map.chegada = map.cliente4
+				map.cliente4 = {cliente0:cliente4_cliente0,cliente8:cliente4_cliente8,cliente5:cliente4_cliente5,chegada:0}
 			}
 			if (yChegada == 20) {
-				map.chegada = map.cliente5
+				map.cliente5 = {cliente4:cliente5_cliente4,cliente1:cliente5_cliente1,cliente9:cliente5_cliente9,cliente6:cliente5_cliente6,chegada:0}
 			}
 			if (yChegada == 50) {
-				map.chegada = map.cliente6
+				map.cliente6 = {cliente5:cliente6_cliente5,cliente2:cliente6_cliente2,cliente10:cliente6_cliente10,cliente7:cliente6_cliente7,chegada:0}
 			}
 			if (yChegada == 80) {
-				map.chegada = map.cliente7
+				map.cliente7 = {cliente6:cliente7_cliente6,cliente3:cliente7_cliente3,cliente11:cliente7_cliente11,chegada:0}
 			}
 		}
 		if (xChegada == 30) {
 			if (yChegada == 0) {
-				map.chegada = map.cliente8
+				map.cliente8 = {cliente4:cliente8_cliente4,cliente12:cliente8_cliente12,cliente9:cliente8_cliente9,chegada:0}
 			}
 			if (yChegada == 20) {
-				map.chegada = map.cliente9
+				map.cliente9 = {cliente8:cliente9_cliente8,cliente5:cliente9_cliente5,cliente13:cliente9_cliente13,cliente10:cliente9_cliente10,chegada:0}
 			}
 			if (yChegada == 50) {
-				map.chegada = map.cliente10
+				map.cliente10 = {cliente9:cliente10_cliente9,cliente6:cliente10_cliente6,cliente14:cliente10_cliente14,cliente11:cliente10_cliente11,chegada:0}
 			}
 			if (yChegada == 80) {
-				map.chegada = map.cliente11
+				map.cliente11 = {cliente10:cliente11_cliente10,cliente7:cliente11_cliente7,cliente15:cliente11_cliente15,chegada:0}
 			}
 		}
 		if (xChegada == 45) {
 			if (yChegada == 0) {
-				map.chegada = map.cliente12
+				map.cliente12 = {cliente8:cliente12_cliente8,cliente16:cliente12_cliente16,cliente13:cliente12_cliente13,chegada:0}
 			}
 			if (yChegada == 20) {
-				map.chegada = map.cliente13
+				map.cliente13 = {cliente12:cliente13_cliente12,cliente9:cliente13_cliente9,cliente17:cliente13_cliente17,cliente14:cliente13_cliente14,chegada:0}
 			}
 			if (yChegada == 50) {
-				map.chegada = map.cliente14
+				map.cliente14 = {cliente13:cliente14_cliente13,cliente10:cliente14_cliente10,cliente15:cliente14_cliente15,cliente18:cliente14_cliente18,chegada:0}
 			}
 			if (yChegada == 80) {
-				map.chegada = map.cliente15
+				map.cliente15 = {cliente14:cliente15_cliente14,cliente11:cliente15_cliente11,cliente19:cliente15_cliente19,chegada:0}
+
 			}
 		}
 		if (xChegada == 50) {
 			if (yChegada == 0) {
-				map.chegada = map.cliente16
+				map.cliente16 = {cliente12:cliente16_cliente12,cliente17:cliente16_cliente17,chegada:0}
 			}
 			if (yChegada == 20) {
-				map.chegada = map.cliente17
+				map.cliente17 = {cliente16:cliente17_cliente16,cliente13:cliente17_cliente13,cliente18:cliente17_cliente18,chegada:0}
 			}
 			if (yChegada == 50) {
-				map.chegada = map.cliente18
+				map.cliente18 = {cliente17:cliente18_cliente17,cliente14:cliente18_cliente14,cliente19:cliente18_cliente19,chegada:0}
 			}
 			if (yChegada == 80) {
-				map.chegada = map.cliente19
+				map.cliente19 = {cliente18:cliente19_cliente18,cliente15:cliente19_cliente15,chegada:0}
 			}
 		}
 	}
@@ -443,13 +445,20 @@ function gerarCaminho(map){
 				auxX = xChegada - 15;
 			}
 			if (yChegada == 0) {
-				map.chegada = {cliente0:xChegada, cliente4:auxX}
+				map.cliente0 = {cliente4:cliente0_cliente4,cliente1:cliente0_cliente1, chegada:xChegada}
+				map.cliente4 = {cliente0:cliente4_cliente0,cliente8:cliente4_cliente8,cliente5:cliente4_cliente5,chegada:auxX}
 			}else if (yChegada == 20) {
 				map.chegada = {cliente1:xChegada, cliente5:auxX}
+				map.cliente1 = {cliente0:cliente1_cliente0,cliente5:cliente1_cliente5,cliente2:cliente1_cliente2,chegada:xChegada}
+				map.cliente5 = {cliente4:cliente5_cliente4,cliente1:cliente5_cliente1,cliente9:cliente5_cliente9,cliente6:cliente5_cliente6,chegada:auxX}
 			}else if (yChegada == 50){
 				map.chegada = {cliente2:xChegada, cliente6:auxX}
+				map.cliente2 = {cliente1:cliente2_cliente1,cliente6:cliente2_cliente6,cliente3:cliente2_cliente3,chegada:xChegada}
+				map.cliente6 = {cliente5:cliente6_cliente5,cliente2:cliente6_cliente2,cliente10:cliente6_cliente10,cliente7:cliente6_cliente7,chegada:auxX}
 			}else{
 				map.chegada = {cliente3:xChegada, cliente7:auxX}
+				map.cliente3 = {cliente2:cliente3_cliente2,cliente7:cliente3_cliente7,chegada:xChegada}
+				map.cliente7 = {cliente6:cliente7_cliente6,cliente3:cliente7_cliente3,cliente11:cliente7_cliente11,chegada:auxX}
 			}
 		}else if (xChegada > 15 && xChegada < 30) {
 			if (xChegada - 30 < 0) {
@@ -458,13 +467,21 @@ function gerarCaminho(map){
 				auxX = xChegada - 30;
 			}
 			if (yChegada == 0) {
-				map.chegada = {cliente4:xChegada, cliente8:auxX}
+				map.chegada = {cliente4:xChegada - 15, cliente8:auxX}
+				map.cliente4 = {cliente0:cliente4_cliente0,cliente8:cliente4_cliente8,cliente5:cliente4_cliente5,chegada:xChegada - 15}
+				map.cliente8 = {cliente4:cliente8_cliente4,cliente12:cliente8_cliente12,cliente9:cliente8_cliente9,chegada:auxX}
 			}else if (yChegada == 20) {
-				map.chegada = {cliente5:xChegada, cliente9:auxX}
+				map.chegada = {cliente5:xChegada - 15, cliente9:auxX}
+				map.cliente5 = {cliente4:cliente5_cliente4,cliente1:cliente5_cliente1,cliente9:cliente5_cliente9,cliente6:cliente5_cliente6,chegada:xChegada - 15}
+				map.cliente9 = {cliente8:cliente9_cliente8,cliente5:cliente9_cliente5,cliente13:cliente9_cliente13,cliente10:cliente9_cliente10,chegada:auxX}
 			}else if (yChegada == 50){
-				map.chegada = {cliente6:xChegada, cliente10:auxX}
+				map.chegada = {cliente6:xChegada - 15, cliente10:auxX}
+				map.cliente6 = {cliente5:cliente6_cliente5,cliente2:cliente6_cliente2,cliente10:cliente6_cliente10,cliente7:cliente6_cliente7,chegada:xChegada - 15}
+				map.cliente10 = {cliente9:cliente10_cliente9,cliente6:cliente10_cliente6,cliente14:cliente10_cliente14,cliente11:cliente10_cliente11,chegada:auxX}
 			}else{
-				map.chegada = {cliente7:xChegada, cliente11:auxX}
+				map.chegada = {cliente7:xChegada - 15, cliente11:auxX}
+				map.cliente7 = {cliente6:cliente7_cliente6,cliente3:cliente7_cliente3,cliente11:cliente7_cliente11,chegada:xChegada - 15}
+				map.cliente11 = {cliente10:cliente11_cliente10,cliente7:cliente11_cliente7,cliente15:cliente11_cliente15,chegada:auxX}
 			}
 		}else if (xChegada > 30 && xChegada < 45) {
 			if (xChegada - 45 < 0) {
@@ -473,13 +490,21 @@ function gerarCaminho(map){
 				auxX = xChegada - 45;
 			}
 			if (yChegada == 0) {
-				map.chegada = {cliente8:xChegada, cliente12:auxX}
+				map.chegada = {cliente8:xChegada - 30, cliente12:auxX}
+				map.cliente8 = {cliente4:cliente8_cliente4,cliente12:cliente8_cliente12,cliente9:cliente8_cliente9,chegada:xChegada - 30}
+				map.cliente12 = {cliente8:cliente12_cliente8,cliente16:cliente12_cliente16,cliente13:cliente12_cliente13,chegada:auxX}
 			}else if (yChegada == 20) {
-				map.chegada = {cliente9:xChegada, cliente13:auxX}
+				map.chegada = {cliente9:xChegada - 30, cliente13:auxX}
+				map.cliente9 = {cliente8:cliente9_cliente8,cliente5:cliente9_cliente5,cliente13:cliente9_cliente13,cliente10:cliente9_cliente10,chegada:xChegada - 30}
+				map.cliente13 = {cliente12:cliente13_cliente12,cliente9:cliente13_cliente9,cliente17:cliente13_cliente17,cliente14:cliente13_cliente14,chegada:auxX}
 			}else if (yChegada == 50){
-				map.chegada = {cliente10:xChegada, cliente14:auxX}
+				map.chegada = {cliente10:xChegada - 30, cliente14:auxX}
+				map.cliente10 = {cliente9:cliente10_cliente9,cliente6:cliente10_cliente6,cliente14:cliente10_cliente14,cliente11:cliente10_cliente11,chegada:xChegada - 30}
+				map.cliente14 = {cliente13:cliente14_cliente13,cliente10:cliente14_cliente10,cliente15:cliente14_cliente15,cliente18:cliente14_cliente18,chegada:auxX}
 			}else{
-				map.chegada = {cliente11:xChegada, cliente15:auxX}
+				map.chegada = {cliente11:xChegada - 30, cliente15:auxX}
+				map.cliente11 = {cliente10:cliente11_cliente10,cliente7:cliente11_cliente7,cliente15:cliente11_cliente15,chegada:xChegada - 30}
+				map.cliente15 = {cliente14:cliente15_cliente14,cliente11:cliente15_cliente11,cliente19:cliente15_cliente19,chegada:auxX}
 			}
 		}else {
 			if (xChegada - 50 < 0) {
@@ -488,13 +513,21 @@ function gerarCaminho(map){
 				auxX = xChegada - 50;
 			}
 			if (yChegada == 0) {
-				map.chegada = {cliente12:xChegada, cliente16:auxX}
+				map.chegada = {cliente12:xChegada - 45, cliente16:auxX}
+				map.cliente12 = {cliente8:cliente12_cliente8,cliente16:cliente12_cliente16,cliente13:cliente12_cliente13,chegada:xChegada - 45}
+				map.cliente16 = {cliente12:cliente16_cliente12,cliente17:cliente16_cliente17,chegada:auxX}
 			}else if (yChegada == 20) {
-				map.chegada = {cliente13:xChegada, cliente17:auxX}
+				map.chegada = {cliente13:xChegada - 45, cliente17:auxX}
+				map.cliente13 = {cliente12:cliente13_cliente12,cliente9:cliente13_cliente9,cliente17:cliente13_cliente17,cliente14:cliente13_cliente14,chegada:xChegada - 45}
+				map.cliente17 = {cliente16:cliente17_cliente16,cliente13:cliente17_cliente13,cliente18:cliente17_cliente18,chegada:auxX}
 			}else if (yChegada == 50){
-				map.chegada = {cliente14:xChegada, cliente18:auxX}
+				map.chegada = {cliente14:xChegada - 45, cliente18:auxX}
+				map.cliente14 = {cliente13:cliente14_cliente13,cliente10:cliente14_cliente10,cliente15:cliente14_cliente15,cliente18:cliente14_cliente18,chegada:xChegada - 45}
+				map.cliente18 = {cliente17:cliente18_cliente17,cliente14:cliente18_cliente14,cliente19:cliente18_cliente19,chegada:auxX}
 			}else{
-				map.chegada = {cliente15:xChegada, cliente19:auxX}
+				map.chegada = {cliente15:xChegada - 45, cliente19:auxX}
+				map.cliente15 = {cliente14:cliente15_cliente14,cliente11:cliente15_cliente11,cliente19:cliente15_cliente19,chegada:xChegada - 45}
+				map.cliente19 = {cliente18:cliente19_cliente18,cliente15:cliente19_cliente15,chegada:auxX}
 			}
 		}
 	}else{
@@ -507,8 +540,12 @@ function gerarCaminho(map){
 			}
 			if (xChegada == 0) {
 				map.chegada = {cliente0:xChegada, cliente1:auxX}
+				map.cliente0 = {cliente4:cliente0_cliente4,cliente1:cliente0_cliente1,chegada:xChegada}
+				map.cliente1 = {cliente0:cliente1_cliente0,cliente5:cliente1_cliente5,cliente2:cliente1_cliente2,chegada:auxX}
 			}else if (xChegada == 15) {
 				map.chegada = {cliente4:xChegada, cliente5:auxX}
+				map.cliente4 = {cliente0:cliente4_cliente0,cliente8:cliente4_cliente8,cliente5:cliente4_cliente5,chegada:xChegada}
+				map.cliente5 = {cliente4:cliente5_cliente4,cliente1:cliente5_cliente1,cliente9:cliente5_cliente9,cliente6:cliente5_cliente6,chegada:auxX}
 			}else if (xChegada == 30) {
 				map.chegada = {cliente8:xChegada, cliente9:auxX}
 			}else if (xChegada == 45) {
@@ -523,15 +560,15 @@ function gerarCaminho(map){
 				auxX = yChegada - 50;
 			}
 			if (xChegada == 0) {
-				map.chegada = {cliente1:xChegada, cliente2:auxX}
+				map.chegada = {cliente1:xChegada - 20, cliente2:auxX}
 			}else if (xChegada == 15) {
-				map.chegada = {cliente5:xChegada, cliente6:auxX}
+				map.chegada = {cliente5:xChegada - 20, cliente6:auxX}
 			}else if (xChegada == 30) {
-				map.chegada = {cliente9:xChegada, cliente10:auxX}
+				map.chegada = {cliente9:xChegada - 20, cliente10:auxX}
 			}else if (xChegada == 45) {
-				map.chegada = {cliente13:xChegada, cliente14:auxX}
+				map.chegada = {cliente13:xChegada - 20, cliente14:auxX}
 			}else {
-				map.chegada = {cliente17:xChegada, cliente18:auxX}
+				map.chegada = {cliente17:xChegada - 20, cliente18:auxX}
 			}
 		}else {
 			if (yChegada - 80 < 0) {
@@ -540,15 +577,15 @@ function gerarCaminho(map){
 				auxX = xChegada - 80;
 			}
 			if (xChegada == 0) {
-				map.chegada = {cliente2:xChegada, cliente3:auxX}
+				map.chegada = {cliente2:xChegada - 50, cliente3:auxX}
 			}else if (xChegada == 15) {
-				map.chegada = {cliente6:xChegada, cliente7:auxX}
+				map.chegada = {cliente6:xChegada - 50, cliente7:auxX}
 			}else if (xChegada == 30) {
-				map.chegada = {cliente10:xChegada, cliente11:auxX}
+				map.chegada = {cliente10:xChegada - 50, cliente11:auxX}
 			}else if (xChegada == 45) {
-				map.chegada = {cliente14:xChegada, cliente15:auxX}
+				map.chegada = {cliente14:xChegada - 50, cliente15:auxX}
 			}else {
-				map.chegada = {cliente18:xChegada, cliente19:auxX}
+				map.chegada = {cliente18:xChegada - 50, cliente19:auxX}
 			}
 		}
 	}
@@ -565,9 +602,9 @@ function gerarCaminho(map){
 
 
 	graph = new Graph(map);
-  	array = graph.findShortestPath('partida', 'chegada');
+  array = graph.findShortestPath('partida', 'chegada');
 
-	for (var i = 0; i < 19; i++) {
+	for (var i = 0; i < 20; i++) {
 		$('#cliente' + i).hide();
 	}
 

@@ -103,5 +103,8 @@ function carregaVertices() {
 
 $(window).resize(function(){
 	carregaVertices();
+	add_bloqueio();
+	add_partida();
+	add_chegada();
 });
 

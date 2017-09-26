@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Congresso Internacional de Direito e Tecnologia</title>
+  <title>#TeamKlickpages</title>
   <meta charset="utf-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="Teste,TeamKlickpages,desenvolvedor,JavaScript">
+  <meta name="author" content="Lucas Porto">
   <meta name="viewport" content="width=device-width, inicial-scale=1, shrink-to-fit=no">
 
-  <link rel="shortcut icon" href="img/simbolo.png">
   <!-- Animate CSS -->
   <link rel="stylesheet" href="css/animate.css">
 
@@ -28,24 +30,6 @@
 
 
 <body id="page-top" data-spy="scroll" data-target="#scrollspy" data-offset="100" onload="carregaVertices();">
-  <!--<nav class="navbar navbar-default navbar-fixed-top" >
-  <div class="container-fluid nav">
-  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-main-collapse">
-  <i class="fa fa-bars"></i>
-</button>
-
-<a class="nav-logo hidden" href="#"><img src="img/cidt_logo_horiz_negativa.svg" alt="Congrsso Internacional de Ciência e Tecnologia"></a>
-<div class="menu-nav">
-<ul>
-<li><a class="page-scroll" href="#sobre">O Congresso</a></li>
-<li><a class="page-scroll" href="#palestrantes">Palestrantes</a></li>
-<li><a class="page-scroll" href="#realizacao">Realização</a></li>
-<li><a class="page-scroll" href="#realizacao">Inscrições</a></li>
-</ul>
-</div>
-</div>
-</nav>-->
-
   <nav class="navbar navbar-default navbar-fixed-top ng-scope" role="navigation" id="menu">
     <div class="row" id="scrollspy">
       <div class="navbar-header">
@@ -63,10 +47,10 @@
           <ul class="nav navbar-nav">
             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
             <li class="hidden">  </li>
-            <li><a class="page-scroll" href="#sobre">Requisitos</a></li>
-            <li><a class="page-scroll" href="#palestrantes">Aplicação</a></li>
-            <li><a class="page-scroll" href="#realizacao">Documentação</a></li>
-            <li><a class="page-scroll" href="#realizacao">Conclusão</a></li>
+            <li><a class="page-scroll" href="#Requisitos">Requisitos</a></li>
+            <li><a class="page-scroll" href="#Aplicacao">Aplicação</a></li>
+            <li><a class="page-scroll" href="#Documentacao">Documentação</a></li>
+            <li><a class="page-scroll" href="#Conclusao">Conclusão</a></li>
           </ul>
         </div>
       </div>
@@ -85,8 +69,8 @@
   </main>
 
 <div  class="content-wrapper">
-  <!--    Sobre-->
-  <section id="sobre">
+  <!--    Requisitos    -->
+  <section id="Requisitos">
     <div class="container">
       <h2 class="title">Requisitos</h2>
       <div class="text">
@@ -161,15 +145,14 @@
 
 
 
-      <!--    Paletrantes-->
-      <section id="palestrantes" class="row-fluid" style="display: inline-flex; padding: 5%; width: 100vw;">
+      <!--    Aplicacao-->
+      <section id="Aplicacao" class="row-fluid" style="display: inline-flex; padding: 5%; width: 100vw;">
 
         <div id="dados" class="col-4" style="padding-right: 4.5%; margin-left: -5%;">
           <strong class="labels">Início</strong>
           <div class="inputs">
             <input id="inputInicioX" type="text" name="inicio" value="" placeholder="x">-<input id="inputInicioY" type="text" name="inicio" value="" placeholder="y">
             <button type="button" name="enviar-inicio" onclick="add_partida();">OK</button>
-            <button type="button" name="limpar-inicio">Limpar</button>
           </div>
           <strong id="strong-inicio"></strong>
 
@@ -177,15 +160,13 @@
           <div class="inputs">
             <input id="inputFinalX" type="text" name="final" value="" placeholder="x">-<input id="inputFinalY" type="text" name="final" value="" placeholder="y">
             <button type="button" name="enviar-final" onclick="add_chegada();">OK</button>
-            <button type="button" name="limpar-final">Limpar</button>
           </div>
           <strong id="strong-final"></strong>
 
           <strong class="labels">Bloqueio</strong>
           <div class="inputs">
-            <input type="text" name="bloqueio" value="" placeholder="x">-<input type="text" name="bloqueio" value="" placeholder="y">
-            <button class type="button" name="enviar-bloqueio">OK</button>
-            <button type="button" name="limpar-bloqueio">Excluir</button>
+            <input id="inputBloqueioX" type="text" name="bloqueio" value="" placeholder="x">-<input id="inputBloqueioY" type="text" name="bloqueio" value="" placeholder="y">
+            <button class type="button" name="enviar-bloqueio" onclick="add_bloqueio();">OK</button>
           </div>
           <strong id="strong-bloqueio"></strong>
             <button class type="button" name="Gerar" onclick="gerarCaminho(mapRapido);">Gerar caminho rápido</button>
@@ -259,31 +240,49 @@
           <div  class="cliente" id="cliente18"></div>
           <div  class="cliente" id="cliente19"></div>
 
-          <div class="cliente box" id="partida"></div>
-          <div class="" id="chegada"></div>
+          <img id="partida" class="cliente icons" src="img/partida.png" alt="">
+          <img id="chegada" class="cliente icons" src="img/chegada.png" alt="">
+          <img id="bloqueio" class="cliente icons" src="img/block.png" alt="">
 
         </div>
       </section>
 
-      <!--Realização-->
+      <!--Documentacao-->
 
-      <section id="realizacao">
-        <div class="container text-center">
+      <section id="Documentacao">
+        <div class="container text-center" >
           <h2 class="title">Documentação</h2>
-          <a href="http://www.legalabs.com.br/" target="_blank"><img src="img/legalabs.png" alt="Legal Labs"></a>
-          <h2 class="title">Apoio</h2>
-          <a href="http://www.fap.df.gov.br/" target="_blank"><img src="img/fap.svg" alt="Fundação de Apoio à Pesquisa"></a>
-          <a href="http://www.capes.gov.br/" target="_blank"><img src="img/capes.svg" alt="Capes"></a>
-          <a href="https://www.unb.br/" target="_blank"><img src="img/unb.svg" alt="Universidade de Brasília"></a>
+          <div style="display: inline-flex;">
+            <a href="docs/teste.pdf">
+            <figure>
+              <img src="img/file.png" alt="Uma imagem impressionante"> 
+              <figcaption>EVIDÊNCIAS DE TESTE</figcaption>
+            </figure>
+            </a>
+            <a href="docs/arquitetura.pdf">
+            <figure>
+              <img src="img/file.png" alt="Uma imagem impressionante"> 
+              <figcaption>ARQUITETURA</figcaption>
+            </figure>
+            </a>
+            <a href="docs/roteiro.pdf">
+            <figure>
+              <img src="img/file.png" alt="Uma imagem impressionante"> 
+              <figcaption>ROTEIRO</figcaption>
+            </figure>
+          </a>
+          </div>
         </div>
       </section>
 
-      <!--Inscrições-->
+      <!--Conclusão-->
 
-      <section id="inscricao">
+      <section id="Conclusao">
         <div class="container">
           <h2 class="title">Conclusão</h2>
-          <h3 class="alert"><i class="fa fa-spinner" aria-hidden="true"></i> EM BREVE</h3>
+          <div class="text">Agradeço por ser selecionado para participar deste processo seletivo, onde acredito que tive oportunidade de mostrar um pouco do meu
+          conhecimento, foi um teste bem divertido de se fazer, espero poder ser selecionado para a vaga em questão para que eu possa mostrar e aplicar também meus outros conhecimentos. </div>
+          
         </div>
       </section>
 
@@ -294,28 +293,6 @@
       </footer>
     </div>
     <script src="js/main.js"></script>
-    <script>
-
-      // Vou construir o mapa com os dados na variavel map, vou fazer o map_rapido e o map_curto
-      // Ao enviar os dados da partida, verificar se ele nao se encontra em cima de algum vertice,
-      //      se sim, passamos esse vertice como parametro para encontrar o melhor caminho para o chegada,
-      //      se não, criamos mais 1 vertice que vamos inserir no map que iremos utilizar e esse vertice
-      //      sera passa por parametro.
-      // A chegada vai ser a mesma logica da partida
-      // O bloqueio vai ser um vertice, ele sera passado por parametro e esse vertice setá excluido do map.
-
-
-      
-
-
-      // var map = {a:{b:3,c:1},b:{a:2,c:1},c:{a:4,b:1}};
-                // alert(graph.findShortestPath('a', 'c'));
-      // alert(graph.findShortestPath('b', 'a'));
-      // alert(graph.findShortestPath('b', 'c', 'b'));
-      // alert(graph.findShortestPath('c', 'a', 'b'));
-      // alert(graph.findShortestPath('c', 'b', 'a'));
-    </script>
-
   </body>
   </html>
 

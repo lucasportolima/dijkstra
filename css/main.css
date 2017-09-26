@@ -248,19 +248,21 @@
 /* PONTOS */
 #cliente{
   position: absolute;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   background-color: red;
-  width: 10px;
-  height: 10px;
+  width: 1%;
+  height: 0.5%;
   margin-top: -10px;
+  margin-left: -0.3%;
 }
 .cliente{
   position: absolute;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   background-color: red;
-  width: 10px;
-  height: 10px;
+  width: 0.8%;
+  height: 0.5%;
   margin-top: -10px;
+  margin-left: -0.3%;
   display: none;
 }
 
@@ -730,6 +732,7 @@
   display: block;
   position: absolute;
   margin-top: 0.5%;
+  margin-left: 1.3vw;
 }
 
 .dadosRua{
@@ -738,4 +741,14 @@
   margin-left: 2%;
   margin-right: 2%;
   border-radius: 2%;
+}
+
+.icons{
+  width: 1.3%;
+  height: 0.8%;
+  background-color: black;
+}
+.icons:hover{
+  width: 2.5%;
+  height: 1.3%;
 }

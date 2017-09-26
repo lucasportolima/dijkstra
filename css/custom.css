@@ -141,7 +141,6 @@ hr {
 /* Intro */
 
 #intro {
-    background: url('../img/bg-intro.jpg') no-repeat center;
     background-size: cover;
     padding: 100px 0;
     color: #fff;
@@ -220,45 +219,45 @@ hr {
     height: 5vh;
 }
 
-/*Sobre */
-#sobre {
+/*Requisitos */
+#Requisitos {
     background-color: #EDEDED;
 }
-#sobre h2 {
+#Requisitos h2 {
     color: #79BD80;
 }
 
-#sobre h2::after {
+#Requisitos h2::after {
     border: 1px solid #79BD80;
 }
 
-#sobre .data {
+#Requisitos .data {
     float: left;
     position: relative;
     margin-bottom: 15px;
 }
 
-#sobre h3 {
+#Requisitos h3 {
     font-size: 1.25em;
     color: #79BD80;
     font-weight: 600;
     margin: 0 0 5px 15px;
 }
 
-#sobre h4 {
+#Requisitos h4 {
     font-size: 1.125em;
     font-weight: 500;
     margin: 0 0 0 15px;
 }
 
-#sobre img {
+#Requisitos img {
     float: left;
     position: relative;
     width: 3em;
 
 }
 
-#sobre .text {
+#Requisitos .text {
     padding-right: 20px;
     padding-left: 20px;
     font-weight: 300;
@@ -266,7 +265,7 @@ hr {
 }
 
 
-#sobre .logo img {
+#Requisitos .logo img {
     width: 300px;
 }
 
@@ -278,40 +277,40 @@ hr {
     width: 30vw;
 }
 
-/*palestrantes */
+/*Aplicacao */
 
-#palestrantes {
+#Aplicacao {
     background-color: #333333;
 }
-#palestrantes .container {
+#Aplicacao .container {
     width: 98vw;
 }
-#palestrantes h2 {
+#Aplicacao h2 {
     color: #EDEDED;
 }
 
-#palestrantes h2::after {
+#Aplicacao h2::after {
     border: 1px solid #EDEDED;
 }
 
-#palestrantes h3 {
+#Aplicacao h3 {
     color: #C7C7C7;
     font-size: 1.5em;
     font-weight: 600;
 }
 
-#palestrantes h4 {
+#Aplicacao h4 {
     color: #79BD80;
     font-size: 1.25em;
     font-weight: 300;
     margin: 5px 0;
 }
 
-#palestrantes a:hover {
+#Aplicacao a:hover {
     color: #79BD80;
     font-weight: 600;
 }
-#palestrantes .col-4 {
+#Aplicacao .col-4 {
     height: 80px;
 }
 
@@ -326,17 +325,17 @@ hr {
     width: 92%;
     }
 }
-/* realizaÃ§Ã£o*/
+/* Documentacao*/
 
-#realizacao h2 {
+#Documentacao h2 {
     color: #959595;
 }
 
-#realizacao h2::after {
+#Documentacao h2::after {
     border: 1px solid #959595;
 }
 
-#realizacao img {
+#Documentacao img {
     height: 6em;
     width: auto;
     margin: 0px 40px 50px;
@@ -345,26 +344,26 @@ hr {
     -webkit-filter: grayscale(100%);
 }
 
-#realizacao img:hover {
+#Documentacao img:hover {
     filter: grayscale(0);
     -webkit-filter: grayscale(0%);
 }
 
-/*InscriÃ§Ãµes*/
-#inscricao {
+/*Conclusao*/
+#Conclusao {
     background-color: #79BD80;
     margin-bottom: 70px;
 }
 
-#inscricao h2 {
+#Conclusao h2 {
     color: #fff;
 }
 
-#inscricao h2::after {
+#Conclusao h2::after {
     border: 1px solid #fff;
 }
 
-#inscricao .alert {
+#Conclusao .alert {
         padding: 1em;
     margin: auto;
     width: 9em;

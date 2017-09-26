@@ -1,0 +1,5 @@
+Prioridades:
+1- Arrumar os inputs para caminho mais curto e caminho mais rapido.
+2- Arrumar as imagens nas quadras do mapa.
+3- Arrumar os dados para ser usado no algoritmo de busca.
+4- Implementar algoritmo.

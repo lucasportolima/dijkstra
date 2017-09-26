@@ -1,6 +1,5 @@
 
-
-
+/* MAPA */
 #map{
   background-color: black;
   width: 50vw;
@@ -244,30 +243,30 @@
   transform: rotate(-90deg);
   left: 70vw;
 }
+/*END MAPA*/
 
-
+/* PONTOS */
 #cliente{
-  position: fixed;
-  border-radius: 50%;
+  position: absolute;
+  /*border-radius: 50%;*/
   background-color: red;
-  width: 10px;
-  height: 10px;
+  width: 1%;
+  height: 0.5%;
   margin-top: -10px;
+  margin-left: -0.3%;
 }
 .cliente{
-  position: fixed;
-  border-radius: 50%;
+  position: absolute;
+  /*border-radius: 50%;*/
   background-color: red;
-  width: 10px;
-  height: 10px;
+  width: 0.8%;
+  height: 0.5%;
   margin-top: -10px;
+  margin-left: -0.3%;
+  display: none;
 }
 
 .box {
-  width: 100px;
-  height: 100px;
-
-  background: #FFF;
   box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 
   -webkit-transform: translate(0, 0);
@@ -279,15 +278,12 @@
   will-change: transform;
 }
 
-.box.move {
+/*.box.move {
 	-webkit-transform: translate(100px, 100px);
   transform: translate(160px, 0px);
-}
+}*/
 
-.box.move2 {
-	-webkit-transform: translate(100px, 100px);
-  transform: translate(0px, 160px);
-}
+/* PONTOS */
 
 /* MOBILE */
 @media (min-width: 300px) and (max-width: 450px) {
@@ -712,41 +708,47 @@
 
 
 
-.oo {
-  display: inline-block;
-  width: 100px;
-  height: 40px;
-  border-radius: 50px;
-  background-color: #363836;
-}
 
-.ball-academico {
-  height: 30px;
-  width: 30px;
-  border-radius: 40px;
-  background-color: #fefefe;
-  margin: 6px;
-  -webkit-animation: switch 2s infinite alternate;
-  -moz-animation: switch 2s infinite alternate;
-  -o-animation: switch 2s infinite alternate;
-  transition-property: margin;
-  transition-duration: 1s;
-}
-
-.ball-profissional {
-  height: 30px;
-  width: 30px;
-  border-radius: 40px;
-  background-color: #fefefe;
-  margin-top: 6px;
-  margin-left: 65px;
-  -webkit-animation: switch 2s infinite alternate;
-  -moz-animation: switch 2s infinite alternate;
-  -o-animation: switch 2s infinite alternate;
-  transition-property: margin;
-  transition-duration: 1s;
-}
 
 .esconder{
 	display: none;
+}
+
+#dados input{
+  width: 10vw;
+  border-radius: 5%;
+}
+
+.liDadosRuas{
+  list-style-type: none;
+}
+
+.inputs{
+  display: inline-flex;
+  padding-top: 8%;
+}
+
+.labels{
+  display: block;
+  position: absolute;
+  margin-top: 0.5%;
+  margin-left: 1.3vw;
+}
+
+.dadosRua{
+  height: 18vh;
+  width: 9.8vw;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 2%;
+}
+
+.icons{
+  width: 1.3%;
+  height: 0.8%;
+  background-color: black;
+}
+.icons:hover{
+  width: 2.5%;
+  height: 1.3%;
 }

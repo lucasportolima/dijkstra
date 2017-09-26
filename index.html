@@ -1,109 +1,225 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Projeto</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li>home</li>
-          <li>contato</li>
+<html lang="pt-br">
+<head>
+  <title>#TeamKlickpages</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="Teste,TeamKlickpages,desenvolvedor,JavaScript">
+  <meta name="author" content="Lucas Porto">
+  <meta name="viewport" content="width=device-width, inicial-scale=1, shrink-to-fit=no">
+
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="css/animate.css">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/basic.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Plugin JavaScript -->
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/vertices.js"></script>
+  <script src="js/dijkstra.js"></script>
+  <script src="js/dados.js"></script>
+</head>
+
+
+<body id="page-top" data-spy="scroll" data-target="#scrollspy" data-offset="100" onload="carregaVertices();">
+  <nav class="navbar navbar-default navbar-fixed-top ng-scope" role="navigation" id="menu">
+    <div class="row" id="scrollspy">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <a class="nav-logo hidden page-scroll" href="#page-top">
+          <h2>#TeamKlickpages</h2>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse navbar-main-collapse">
+        <!-- Navigation Collapse -->
+        <div class="menu-nav">
+          <ul class="nav navbar-nav">
+            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+            <li class="hidden">  </li>
+            <li><a class="page-scroll" href="#Requisitos">Requisitos</a></li>
+            <li><a class="page-scroll" href="#Aplicacao">Aplicação</a></li>
+            <li><a class="page-scroll" href="#Documentacao">Documentação</a></li>
+            <li><a class="page-scroll" href="#Conclusao">Conclusão</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+  <!--    Intro-->
+  <main id="intro">
+    <div class="intro-bg">
+      <div class="container text-center">
+        <h1>Lucas Porto</h1>
+        <h2>Teste 01</h2>
+      </div>
+    </div>
+  </main>
+
+<div  class="content-wrapper">
+  <!--    Requisitos    -->
+  <section id="Requisitos">
+    <div class="container">
+      <h2 class="title">Requisitos</h2>
+      <div class="text">
+        Um aplicativo visa encontrar a melhor rota para o seu cliente a partir de
+        qualquer localidade, levando em conta quais ruas estão interditadas. Os clientes,
+        com gostos diferenciados, podem escolher pegar caminhos personalizados.
+
+        <ol>
+          <li>O cliente pode informar sua origem e seu destino, mais quantas paradas
+            achar necessário durante o caminho;</li>
+          <li>O cliente poderá definir se deseja o trajeto mais curto ou o mais rápido;</li>
+          <li>A rota deve considerar os desvios dos locais que estiverem interditados;</li>
+        </ol>
+
+        <p>Ao inicializar o programa ele deverá receber um arquivo com a configuração do
+          mapa seguindo o seguinte padrão, com um comando por linha:</p>
+
+        <p>
+          R19­(x,y);(x,y):30</br>
+          O R19 ​identifica a rua, o primeiro par ordenado identifica onde a rua começa, o
+          segundo onde ela termina, o último número indica a velocidade máxima da via;</br>
+          I­(x,y)</br>
+          Identifica onde se encontra um ponto de interdição, por onde uma rota não poderá
+          passar;
+        </p>
+
+        <strong>Observações:</strong>
+        <ul style="padding-left: 6%;">
+          <li>As ruas só podem estar na horizontal ou na vertical;</li>
+          <li>Tome como base o sistema cartesiano e que o eixo das ordenadas no
+            sentido crescente vai para o norte e no sentido decrescente para o sul. O
+            eixo das abscissas no sentido crescente vai para o leste e no decrescente
+            para o oeste;</li>
         </ul>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <ul>
-          <li><input id="input-partida" type="text" name="partida" value=""> <button id="button-partida" onclick="add_partida();" type="button" name="button">partida</button></li>
-          <li><input id="input-chegada" type="text" name="chegada" value=""> <button id="button-chegada" onclick="add_chegada();" type="button" name="button">chegada</button></li>
-          <li><input id="input-bloqueio" type="text" name="partida" value=""> <button id="button-bloqueio" onclick="add_bloqueio();" type="button" name="button">bloqueio</button></li>
-        </ul>
+        </br>
+        <ol>
+          <li>Se pede que o programa receba como parâmetro a origem, o destino, se
+            deseja o caminho mais rápido ou o mais curto e retorne o trajeto no seguinte
+            padrão:
+            <p>N­R5, O­R8, L­R19, …</p>
+            <p>Onde a primeira letra indica a direção (norte, sul, leste e oeste) e a segunda
+              a rua;
+            </p>
+          </li>
+          <li>Não é obrigatória a construção de uma visualização gráfica (que pode ser
+            feita preferencialmente no console), mas ela será um grande diferencial para
+            nossa avaliação;</li>
+        </ol>
+            </br>
+            Exemplo de entrada para montagem do mapa:
+            <ul>
+              <li class="liDadosRuas">Av. Axis ­ (0,0);(50, 0):110</li>
+              <li class="liDadosRuas">Av. Awesome ­ (0, 20);(50, 20):60</li>
+              <li class="liDadosRuas">Av. Love ­ (0, 50);(50, 50):80</li>
+              <li class="liDadosRuas">Av. Slow ­ (0, 80);(50, 80):30</li>
+              <li class="liDadosRuas">St. Oh ­ (0, 0);(0, 80):90</li>
+              <li class="liDadosRuas">St. One ­ (15, 0);(15,80):40</li>
+              <li class="liDadosRuas">St. Two ­ (30, 0);(30, 80):50</li>
+              <li class="liDadosRuas">St. Three ­ (45, 0);(45, 80):40</li>
+              <li class="liDadosRuas">St. Four ­ (50, 0);(50, 80):50</li>
+            </ul>
+
+          </br>
+          <p>O que formaria algo como este mapa de exemplo, excetuando o trajeto que é um
+            input do programa.:</p>
+
+
+          </div>
+
+        </div>
       </section>
-      <section class="">
-        <div class="container-fluid" id="map">
+
+
+
+      <!--    Aplicacao-->
+      <section id="Aplicacao" class="row-fluid" style="display: inline-flex; padding: 5%; width: 100vw;">
+
+        <div id="dados" class="col-4" style="padding-right: 4.5%; margin-left: -5%;">
+          <strong class="labels">Início</strong>
+          <div class="inputs">
+            <input id="inputInicioX" type="text" name="inicio" value="" placeholder="x">-<input id="inputInicioY" type="text" name="inicio" value="" placeholder="y">
+            <button type="button" name="enviar-inicio" onclick="add_partida();">OK</button>
+          </div>
+          <strong id="strong-inicio"></strong>
+
+          <strong class="labels">Final</strong>
+          <div class="inputs">
+            <input id="inputFinalX" type="text" name="final" value="" placeholder="x">-<input id="inputFinalY" type="text" name="final" value="" placeholder="y">
+            <button type="button" name="enviar-final" onclick="add_chegada();">OK</button>
+          </div>
+          <strong id="strong-final"></strong>
+
+          <strong class="labels">Bloqueio</strong>
+          <div class="inputs">
+            <input id="inputBloqueioX" type="text" name="bloqueio" value="" placeholder="x">-<input id="inputBloqueioY" type="text" name="bloqueio" value="" placeholder="y">
+            <button class type="button" name="enviar-bloqueio" onclick="add_bloqueio();">OK</button>
+          </div>
+          <strong id="strong-bloqueio"></strong>
+            <button class type="button" name="Gerar" onclick="gerarCaminho(mapRapido);">Gerar caminho rápido</button>
+            <button class type="button" name="Gerar" onclick="gerarCaminho(mapCurto);">Gerar caminho curto</button>
+          <div class="inputs">
+
+          </div>
+        </div>
+
+        <div class="container-fluid col-8" id="map">
           <div class="row-fluid quadra" id="Aa">
             <div class="rua span3" id="A-1">
-              <p>Av. Slow</p>
-              <p>St. Oh</p>
-              <p>Av. Love</p>
-              <p>St. One</p>
+              <img class="dadosRua" src="img/quadra9.png" alt="">
             </div>
             <div class="rua span3" id="A-2">
-              <p>30km/h</p>
-              <p>St. One</p>
-              <p>80km/h</p>
-              <p>St. Two</p>
+              <img class="dadosRua" src="img/quadra10.png" alt="">
             </div>
             <div class="rua span3" id="A-3">
-              <p>Av. Slow</p>
-              <p>St. Two</p>
-              <p>Av. Love</p>
-              <p>St. Three</p>
+              <img class="dadosRua" src="img/quadra11.png" alt="">
             </div>
             <div class="rua span3" id="A-4">
-              <p>30km/h</p>
-              <p>St. Three</p>
-              <p>80km/h</p>
-              <p>St. Four</p>
+              <img class="dadosRua" src="img/quadra12.png" alt="">
             </div>
           </div>
           <div class="row-fluid quadra" id="Bb">
             <div class="rua span3" id="B-1">
-              <p>Av. Love</p>
-              <p>90km/h</p>
-              <p>Av. Awesome</p>
-              <p>40km/h</p>
+              <img class="dadosRua" src="img/quadra5.png" alt="">
             </div>
             <div class="rua span3" id="B-2">
-              <p>80km/h</p>
-              <p>40km/h</p>
-              <p>60km/h</p>
-              <p>50km/h</p>
+              <img class="dadosRua" src="img/quadra6.png" alt="">
             </div>
             <div class="rua span3" id="B-3">
-              <p>Av. Love</p>
-              <p>50km/h</p>
-              <p>Av. Awesome</p>
-              <p>40km/h</p>
+              <img class="dadosRua" src="img/quadra7.png" alt="">
             </div>
             <div class="rua span3" id="B-4">
-              <p>80km/h</p>
-              <p>40km/h</p>
-              <p>60km/h</p>
-              <p>50km/h</p>
+              <img class="dadosRua" src="img/quadra8.png" alt="">
             </div>
           </div>
           <div class="row-fluid quadra" id="Cc">
             <div class="rua span3" id="C-1">
-              <p>Av. Awesome</p>
-              <p>St. Oh</p>
-              <p>Av. Axis</p>
-              <p>St. One</p>
+              <img class="dadosRua" src="img/quadra1.png" alt="">
             </div>
             <div class="rua span3" id="C-2">
-              <p>60km/h</p>
-              <p>St. One</p>
-              <p>110km/h</p>
-              <p>St. Two</p>
+              <img class="dadosRua" src="img/quadra2.png" alt="">
             </div>
             <div class="rua span3" id="C-3">
-              <p>Av. Awesome</p>
-              <p>St. Two</p>
-              <p>Av. Axis</p>
-              <p>St. Three</p>
+              <img class="dadosRua" src="img/quadra3.png" alt="">
             </div>
             <div class="rua span3" id="C-4">
-              <p>60km/h</p>
-              <p>St. Three</p>
-              <p>110km/h</p>
-              <p>St. Four</p>
+              <img class="dadosRua" src="img/quadra4.png" alt="">
             </div>
           </div>
-          <div class="box" id="cliente"></div>
+          <div class="cliente" id="cliente0"></div>
           <div  class="cliente " id="cliente1"></div>
           <div  class="cliente" id="cliente2"></div>
           <div  class="cliente" id="cliente3"></div>
@@ -124,30 +240,70 @@
           <div  class="cliente" id="cliente18"></div>
           <div  class="cliente" id="cliente19"></div>
 
-          <div class="" id="partida"></div>
-          <div class="" id="chegada"></div>
+          <img id="partida" class="cliente icons" src="img/partida.png" alt="">
+          <img id="chegada" class="cliente icons" src="img/chegada.png" alt="">
+          <img id="bloqueio" class="cliente icons" src="img/block.png" alt="">
+
         </div>
       </section>
-      <section>
-        <article class="">
-          <p>testandoooo</p>
-          <figure>
-            <img src="" alt="#">
-            <figcaption>
-              legenda
-            </figcaption>
-          </figure>
-        </article>
+
+      <!--Documentacao-->
+
+      <section id="Documentacao">
+        <div class="container text-center" >
+          <h2 class="title">Documentação</h2>
+          <div style="display: inline-flex;">
+            <a href="docs/teste.pdf">
+            <figure>
+              <img src="img/file.png" alt="Uma imagem impressionante"> 
+              <figcaption>EVIDÊNCIAS DE TESTE</figcaption>
+            </figure>
+            </a>
+            <a href="docs/arquitetura.pdf">
+            <figure>
+              <img src="img/file.png" alt="Uma imagem impressionante"> 
+              <figcaption>ARQUITETURA</figcaption>
+            </figure>
+            </a>
+            <a href="docs/roteiro.pdf">
+            <figure>
+              <img src="img/file.png" alt="Uma imagem impressionante"> 
+              <figcaption>ROTEIRO</figcaption>
+            </figure>
+          </a>
+          </div>
+        </div>
       </section>
-      <aside class="">
 
-      </aside>
-    </main>
+      <!--Conclusão-->
 
-    <footer>
+      <section id="Conclusao">
+        <div class="container">
+          <h2 class="title">Conclusão</h2>
+          <div class="text">Agradeço por ser selecionado para participar deste processo seletivo, onde acredito que tive oportunidade de mostrar um pouco do meu
+          conhecimento, foi um teste bem divertido de se fazer, espero poder ser selecionado para a vaga em questão para que eu possa mostrar e aplicar também meus outros conhecimentos. </div>
+          
+        </div>
+      </section>
 
-    </footer>
+      <footer>
+        <div>
+          <h2>#TeamKlickpages</h2>
+        </div>
+      </footer>
+    </div>
     <script src="js/main.js"></script>
-    <script src="js/busca_menor_caminho.js"></script>
   </body>
-</html>
+  </html>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="js/navbar.js"></script>
